@@ -8,7 +8,7 @@ import pandas as pd
 import dash_table
 
 
-df = pd.read_csv('sende.csv')
+df = pd.read_csv('Sende.csv')
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 
 
