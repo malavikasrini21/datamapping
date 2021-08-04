@@ -51,7 +51,7 @@ def bert():
 
     f=pd.DataFrame(d,columns=["Source","Target","Match"])
     #print(f)
-
+    d=[]
     dicte={}
     for i in range(len(f)):
         tg=[]                                
@@ -119,7 +119,18 @@ def main():
             df=pd.read_csv(fileuploade)
             #bert(df)
             print(fileuploade.name)
-            st.dataframe(df)
+            source,Target=st.beta_columns(2)
+            source.header("Source")
+            Target.header("Target")
+            col1,col2=st.beta_columns(2)
+            source=df5.columns.values.tolist()
+            
+            for p in source:
+                col1.checkbox(p)
+            n=pd.read_csv('TargetDataBasecsv.csv')
+            target=n.columns.values.tolist()
+            for p in target:
+                col2.write(p)
     elif selectbox==Menu[2]:
         st.header("Model Selector")
         opt = st.radio(
