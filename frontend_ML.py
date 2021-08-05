@@ -115,7 +115,7 @@ def main():
         
             file_details={"File Name":fileuploade.name,
         "File Type":fileuploade.type,"File Size":fileuploade.size}
-            st.write(file_details)
+            
             df=pd.read_csv(fileuploade)
             #bert(df)
             print(fileuploade.name)
