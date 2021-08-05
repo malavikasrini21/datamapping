@@ -123,7 +123,7 @@ def main():
             source.header("Source")
             Target.header("Target")
             col1,col2=st.beta_columns(2)
-            source=df5.columns.values.tolist()
+            source=df.columns.values.tolist()
             
             for p in source:
                 col1.checkbox(p)
