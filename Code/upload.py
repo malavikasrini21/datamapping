@@ -24,8 +24,7 @@ def app():
         Source=Data.columns.values.tolist()
         
             
-        for p in Source:
-            sav=col1.checkbox(p)
+        oSELECTED = col1.multiselect('Select',Source)
             
             
 
@@ -45,7 +44,7 @@ def app():
         
         # Raw data 
         with open("out.txt", "w") as f1:
-            opte = repr(Source)
+            opte = repr(oSELECTED)
             f1.write(opte)
         #Data.to_csv('pages/data.csv', index=False)
             
