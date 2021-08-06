@@ -12,11 +12,9 @@ def bert():
 
     ym=df.columns.values.tolist()
 #print(ym)
-
-    ym1=df1.columns.values.tolist()
-    ym1=[]
-    for i in Source:
-        ym1.append(i)
+    with open("out.txt", "r") as f1:
+        ym1=f1.read()
+    
 #print(ym1)
     model_name=opti
     print(model_name)
