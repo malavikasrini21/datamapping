@@ -8,7 +8,7 @@ df1=pd.read_csv(m)
 df=pd.read_csv(n)
 
 ym=df.columns.values.tolist()
-#print(ym)
+print(ym)
 
 ym1=df1.columns.values.tolist()
 print(ym1)
