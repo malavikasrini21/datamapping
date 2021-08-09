@@ -40,27 +40,34 @@ def app():
             
             
     if st.button("Load Data"):
-        ar=Data[Source[Source.index(datt)]]
+        st.success("Data Loading Successful...")
+        if datt=='None of the above':
+            pass
+        else:
+            ar=Data[Source[Source.index(datt)]]
         
         from datetime import datetime
-        for dt in ar:
-            datee=dt
-            form=['%d-%m-%Y','%m-%d-%Y','%B %d,%Y','%m/%d/%Y','%d/%m/%Y','%d-%m-%y','%d.%m.%Y','%m.%d.%Y','%d.%m.%y','%m.%d.%y','%m-%d-%y','%d/%m/%y','%m/%d/%y','%Y/%m/%d']
-            i=0
-            while int(i)<=int(len(form)): 
-                try:
-                    date_object = datetime.strptime(datee,form[i])
-                    g = pd.to_datetime(date_object, format='%d%m%y')
+            for dt in ar:
+                datee=dt
+                form=['%d-%m-%Y','%m-%d-%Y','%B %d,%Y','%m/%d/%Y','%d/%m/%Y','%d-%m-%y','%d.%m.%Y','%m.%d.%Y','%d.%m.%y','%m.%d.%y','%m-%d-%y','%d/%m/%y','%m/%d/%y','%Y/%m/%d']
+                i=0
+                while int(i)<=int(len(form)): 
+                    try:
+                        date_object = datetime.strptime(datee,form[i])
+                        g = pd.to_datetime(date_object, format='%d%m%y')
                     
-                    Data[Source[Source.index(datt)]].replace(datee,g.date())
-                    break
-                except:
+                        Data[Source[Source.index(datt)]].replace(datee,g.date())
+                        break
+                    except:
         
-                    i=i+1
+                        i=i+1
         # Raw data 
+        with open("name","w") as f4:
+                f4.write(str(Data))
         with open("out.txt", "w") as f1:
             opte = repr(oSELECTED)
             f1.write(opte)
+        Source.remove('None of the above')
         #Data.to_csv('pages/data.csv', index=False)
             
     
