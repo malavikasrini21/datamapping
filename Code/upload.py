@@ -2,6 +2,7 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 from pages import utils
+from datetime import datetime
 
 def app():
     
@@ -13,7 +14,6 @@ def app():
     if fileuploade is not None:
         
         file_details={"File Name":fileuploade.name,"File Type":fileuploade.type,"File Size":fileuploade.size}
-            
         Data=pd.read_csv(fileuploade)
         #bert(df)
             
@@ -23,10 +23,10 @@ def app():
         col1,col2=st.beta_columns(2)
         Source=Data.columns.values.tolist()
         
-            
+        
         oSELECTED = col1.multiselect('Select',Source)
-            
-            
+        
+          
 
         n=pd.read_csv('TargetDataBasecsv.csv')
         target=n.columns.values.tolist()
@@ -36,7 +36,14 @@ def app():
         st.title("Select the column which has dates")
         col4,col5=st.beta_columns(2)
         
+        Source.insert(0,'None of the above')
         datt=col4.radio("Select",Source)
+        col4.success(datt)
+        
+
+    
+            
+
             
             
     if st.button("Load Data"):
@@ -46,7 +53,7 @@ def app():
         else:
             ar=Data[Source[Source.index(datt)]]
         
-        from datetime import datetime
+        
             for dt in ar:
                 datee=dt
                 form=['%d-%m-%Y','%m-%d-%Y','%B %d,%Y','%m/%d/%Y','%d/%m/%Y','%d-%m-%y','%d.%m.%Y','%m.%d.%Y','%d.%m.%y','%m.%d.%y','%m-%d-%y','%d/%m/%y','%m/%d/%y','%Y/%m/%d']
@@ -61,13 +68,15 @@ def app():
                     except:
         
                         i=i+1
+        
         # Raw data 
-        with open("name","w") as f4:
+            with open("name","w") as f4:
                 f4.write(str(Data))
-        with open("out.txt", "w") as f1:
-            opte = repr(oSELECTED)
-            f1.write(opte)
-        Source.remove('None of the above')
-        #Data.to_csv('pages/data.csv', index=False)
+            with open("out.txt", "w") as f1:
+                opte = repr(oSELECTED)
+                f1.write(opte)
+            Source.remove('None of the above')
+            #Data.to_csv('pages/data.csv', index=False)
+            
             
     
