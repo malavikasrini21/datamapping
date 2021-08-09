@@ -25,6 +25,7 @@ def app():
         
             
         oSELECTED = col1.multiselect('Select',Source)
+        #st.write(oSELECTED)
             
             
 

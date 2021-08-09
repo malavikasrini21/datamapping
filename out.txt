@@ -1,0 +1,1 @@
+['client_id', 'sex', 'fulldate', 'social', 'first', 'middle', 'last', 'phone', 'email', 'address_1', 'address_2', 'city', 'state']
