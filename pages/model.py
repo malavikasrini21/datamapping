@@ -1,6 +1,7 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
+import ast
 from pages import utils,upload
 
 from sentence_transformers import SentenceTransformer,util
@@ -17,7 +18,8 @@ def bert(model_name):
         #ym1=df1.columns.values.tolist()
         ym1=[]
         with open("out.txt","r") as f1:
-            ym1=f1.read()
+            res=f1.read()
+        ym1=ast.literal_eval(res)
         st.write(ym1)
 
 #print(ym1)
@@ -30,6 +32,7 @@ def bert(model_name):
         embeddings2 = model.encode(ym1, convert_to_tensor=True)
 
         cosine_scores = util.pytorch_cos_sim(embeddings2, embeddings1)
+        st.write(cosine_scores)
 #a=[]
 #b=[]
 #score=[]
@@ -106,6 +109,7 @@ def bert(model_name):
     
         
         df=fino
+        st.dataframe(df)
         col1,col2,col3,col58=st.beta_columns(4)
         c1=col1.text(df.Source[0])
         t1=col2.selectbox("Target",[df.Target[0],'Acct_id', 'Acct_UIDNo.', 'Acct_FName', 'Acct_MName', 'Acct_LName', 'Acct_Addr1', 'Acct_Addr2', 'Acct_City', 'Acct_State', 'Acct_phone', 'Acct_email', 'Acct_DOB', 'Acct_Gender'],key=1)
@@ -188,42 +192,7 @@ def bert(model_name):
         d13=col70.selectbox("Values",df.Data[12],key=70)
 
         
-        col40,col41,col42,col71=st.beta_columns(4)
-        c14=col40.text(df.Source[13])
-        t14=col41.selectbox("Target",[df.Target[13],'Acct_id', 'Acct_UIDNo.', 'Acct_FName', 'Acct_MName', 'Acct_LName', 'Acct_Addr1', 'Acct_Addr2', 'Acct_City', 'Acct_State', 'Acct_phone', 'Acct_email', 'Acct_DOB', 'Acct_Gender'],key=14)
-        m14=col42.text(df.Match[13])
-        d14=col71.selectbox("Values",df.Data[13],key=71)
-
-        col43,col44,col45,col72=st.beta_columns(4)
-        c15=col43.text(df.Source[14])
-        t15=col44.selectbox("Target",[df.Target[14],'Acct_id', 'Acct_UIDNo.', 'Acct_FName', 'Acct_MName', 'Acct_LName', 'Acct_Addr1', 'Acct_Addr2', 'Acct_City', 'Acct_State', 'Acct_phone', 'Acct_email', 'Acct_DOB', 'Acct_Gender'],key=15)
-        m15=col45.text(df.Match[14])
-        d15=col72.selectbox("Values",df.Data[14],key=72)
-
         
-        col46,col47,col48,col73=st.beta_columns(4)
-        c16=col46.text(df.Source[15])
-        t16=col47.selectbox("Target",[df.Target[15],'Acct_id', 'Acct_UIDNo.', 'Acct_FName', 'Acct_MName', 'Acct_LName', 'Acct_Addr1', 'Acct_Addr2', 'Acct_City', 'Acct_State', 'Acct_phone', 'Acct_email', 'Acct_DOB', 'Acct_Gender'],key=16)
-        m16=col48.text(df.Match[15])
-        d16=col73.selectbox("Values",df.Data[15],key=73)
-        
-        col49,col50,col51,col74=st.beta_columns(4)
-        c17=col49.text(df.Source[16])
-        t17=col50.selectbox("Target",[df.Target[16],'Acct_id', 'Acct_UIDNo.', 'Acct_FName', 'Acct_MName', 'Acct_LName', 'Acct_Addr1', 'Acct_Addr2', 'Acct_City', 'Acct_State', 'Acct_phone', 'Acct_email', 'Acct_DOB', 'Acct_Gender'],key=17)
-        m17=col51.text(df.Match[16])
-        d17=col74.selectbox("Values",df.Data[16],key=74)
-
-        col52,col53,col54,col75=st.beta_columns(4)
-        c18=col52.text(df.Source[17])
-        t18=col53.selectbox("Target",[df.Target[17],'Acct_id', 'Acct_UIDNo.', 'Acct_FName', 'Acct_MName', 'Acct_LName', 'Acct_Addr1', 'Acct_Addr2', 'Acct_City', 'Acct_State', 'Acct_phone', 'Acct_email', 'Acct_DOB', 'Acct_Gender'],key=18)
-        m18=col54.text(df.Match[17])
-        d18=col75.selectbox("Values",df.Data[17],key=75)
-
-        col55,col56,col57,col76=st.beta_columns(4)
-        c19=col55.text(df.Source[18])
-        t19=col56.selectbox("Target",[df.Target[18],'Acct_id', 'Acct_UIDNo.', 'Acct_FName', 'Acct_MName', 'Acct_LName', 'Acct_Addr1', 'Acct_Addr2', 'Acct_City', 'Acct_State', 'Acct_phone', 'Acct_email', 'Acct_DOB', 'Acct_Gender'],key=19)
-        m19=col57.text(df.Match[18])
-        d19=col76.selectbox("Values",df.Data[18],key=76)
 
         column=['Acct_id', 'Acct_UIDNo.', 'Acct_FName', 'Acct_MName', 'Acct_LName', 'Acct_Addr1', 'Acct_Addr2', 'Acct_City', 'Acct_State', 'Acct_phone', 'Acct_email', 'Acct_DOB', 'Acct_Gender']
         final=pd.DataFrame(columns=column)
@@ -231,11 +200,356 @@ def bert(model_name):
         if t1=='Acct_id':
             final['Acct_id']=df.Data[0]
         elif t1=='Acct_UIDNo.':
-            final['Acct_UIDNo']=df.Data[0]
-        elif t1=='Acct_UIDNo.':
-            final['Acct_UIDNo']=df.Data[0]
-        elif t1=='Acct_UIDNo.':
-            final['Acct_UIDNo']=df.Data[0]
+            final['Acct_UIDNo.']=df.Data[0]
+        elif t1=='Acct_FName':
+            final['Acct_FName']=df.Data[0]
+        elif t1=='Acct_MName':
+            final['Acct_MName']=df.Data[0]
+        elif t1=='Acct_LName':
+            final['Acct_LName']=df.Data[0]
+        elif t1=='Acct_Addr1':
+            final['Acct_Addr1']=df.Data[0]
+        elif t1=='Acct_Addr2':
+            final['Acct_Addr2']=df.Data[0]
+        elif t1=='Acct_City':
+            final['Acct_City']=df.Data[0]
+        elif t1=='Acct_State':
+            final['Acct_State']=df.Data[0]
+        elif t1=='Acct_phone':
+            final['Acct_phone']=df.Data[0]
+        elif t1=='Acct_email':
+            final['Acct_email']=df.Data[0]
+        elif t1=='Acct_DOB.':
+            final['Acct_DOB']=df.Data[0]
+        elif t1=='Acct_Gender':
+            final['Acct_Gender']=df.Data[0]
+        
+        if t2=='Acct_id':
+            final['Acct_id']=df.Data[1]
+        elif t2=='Acct_UIDNo.':
+            final['Acct_UIDNo.']=df.Data[1]
+        elif t2=='Acct_FName':
+            final['Acct_FName']=df.Data[1]
+        elif t2=='Acct_MName':
+            final['Acct_MName']=df.Data[1]
+        elif t2=='Acct_LName':
+            final['Acct_LName']=df.Data[1]
+        elif t2=='Acct_Addr1':
+            final['Acct_Addr1']=df.Data[1]
+        elif t2=='Acct_Addr2':
+            final['Acct_Addr2']=df.Data[1]
+        elif t2=='Acct_City':
+            final['Acct_City']=df.Data[1]
+        elif t2=='Acct_State':
+            final['Acct_State']=df.Data[1]
+        elif t2=='Acct_phone':
+            final['Acct_phone']=df.Data[1]
+        elif t2=='Acct_email':
+            final['Acct_email']=df.Data[1]
+        elif t2=='Acct_DOB.':
+            final['Acct_DOB']=df.Data[1]
+        elif t2=='Acct_Gender':
+            final['Acct_Gender']=df.Data[1]
+
+        if t3=='Acct_id':
+            final['Acct_id']=df.Data[2]
+        elif t3=='Acct_UIDNo.':
+            final['Acct_UIDNo.']=df.Data[2]
+        elif t3=='Acct_FName':
+            final['Acct_FName']=df.Data[2]
+        elif t3=='Acct_MName':
+            final['Acct_MName']=df.Data[2]
+        elif t3=='Acct_LName':
+            final['Acct_LName']=df.Data[2]
+        elif t3=='Acct_Addr1':
+            final['Acct_Addr1']=df.Data[2]
+        elif t3=='Acct_Addr2':
+            final['Acct_Addr2']=df.Data[2]
+        elif t3=='Acct_City':
+            final['Acct_City']=df.Data[2]
+        elif t3=='Acct_State':
+            final['Acct_State']=df.Data[2]
+        elif t3=='Acct_phone':
+            final['Acct_phone']=df.Data[2]
+        elif t3=='Acct_email':
+            final['Acct_email']=df.Data[2]
+        elif t3=='Acct_DOB.':
+            final['Acct_DOB']=df.Data[2]
+        elif t3=='Acct_Gender':
+            final['Acct_Gender']=df.Data[2]
+
+        if t4=='Acct_id':
+            final['Acct_id']=df.Data[3]
+        elif t4=='Acct_UIDNo.':
+            final['Acct_UIDNo.']=df.Data[3]
+        elif t4=='Acct_FName':
+            final['Acct_FName']=df.Data[3]
+        elif t4=='Acct_MName':
+            final['Acct_MName']=df.Data[3]
+        elif t4=='Acct_LName':
+            final['Acct_LName']=df.Data[3]
+        elif t4=='Acct_Addr1':
+            final['Acct_Addr1']=df.Data[3]
+        elif t4=='Acct_Addr2':
+            final['Acct_Addr2']=df.Data[3]
+        elif t4=='Acct_City':
+            final['Acct_City']=df.Data[3]
+        elif t4=='Acct_State':
+            final['Acct_State']=df.Data[3]
+        elif t4=='Acct_phone':
+            final['Acct_phone']=df.Data[3]
+        elif t4=='Acct_email':
+            final['Acct_email']=df.Data[3]
+        elif t4=='Acct_DOB.':
+            final['Acct_DOB']=df.Data[3]
+        elif t4=='Acct_Gender':
+            final['Acct_Gender']=df.Data[3]
+
+        if t5=='Acct_id':
+            final['Acct_id']=df.Data[4]
+        elif t5=='Acct_UIDNo.':
+            final['Acct_UIDNo.']=df.Data[4]
+        elif t5=='Acct_FName':
+            final['Acct_FName']=df.Data[4]
+        elif t5=='Acct_MName':
+            final['Acct_MName']=df.Data[4]
+        elif t5=='Acct_LName':
+            final['Acct_LName']=df.Data[4]
+        elif t5=='Acct_Addr1':
+            final['Acct_Addr1']=df.Data[4]
+        elif t5=='Acct_Addr2':
+            final['Acct_Addr2']=df.Data[4]
+        elif t5=='Acct_City':
+            final['Acct_City']=df.Data[4]
+        elif t5=='Acct_State':
+            final['Acct_State']=df.Data[4]
+        elif t5=='Acct_phone':
+            final['Acct_phone']=df.Data[4]
+        elif t5=='Acct_email':
+            final['Acct_email']=df.Data[4]
+        elif t5=='Acct_DOB.':
+            final['Acct_DOB']=df.Data[4]
+        elif t5=='Acct_Gender':
+            final['Acct_Gender']=df.Data[4]
+
+        if t6=='Acct_id':
+            final['Acct_id']=df.Data[5]
+        elif t6=='Acct_UIDNo.':
+            final['Acct_UIDNo.']=df.Data[5]
+        elif t6=='Acct_FName':
+            final['Acct_FName']=df.Data[5]
+        elif t6=='Acct_MName':
+            final['Acct_MName']=df.Data[5]
+        elif t6=='Acct_LName':
+            final['Acct_LName']=df.Data[5]
+        elif t6=='Acct_Addr1':
+            final['Acct_Addr1']=df.Data[5]
+        elif t6=='Acct_Addr2':
+            final['Acct_Addr2']=df.Data[5]
+        elif t6=='Acct_City':
+            final['Acct_City']=df.Data[5]
+        elif t6=='Acct_State':
+            final['Acct_State']=df.Data[5]
+        elif t6=='Acct_phone':
+            final['Acct_phone']=df.Data[5]
+        elif t6=='Acct_email':
+            final['Acct_email']=df.Data[5]
+        elif t6=='Acct_DOB.':
+            final['Acct_DOB']=df.Data[5]
+        elif t6=='Acct_Gender':
+            final['Acct_Gender']=df.Data[5]
+
+        if t7=='Acct_id':
+            final['Acct_id']=df.Data[6]
+        elif t7=='Acct_UIDNo.':
+            final['Acct_UIDNo.']=df.Data[6]
+        elif t7=='Acct_FName':
+            final['Acct_FName']=df.Data[6]
+        elif t7=='Acct_MName':
+            final['Acct_MName']=df.Data[6]
+        elif t7=='Acct_LName':
+            final['Acct_LName']=df.Data[6]
+        elif t7=='Acct_Addr1':
+            final['Acct_Addr1']=df.Data[6]
+        elif t7=='Acct_Addr2':
+            final['Acct_Addr2']=df.Data[6]
+        elif t7=='Acct_City':
+            final['Acct_City']=df.Data[6]
+        elif t7=='Acct_State':
+            final['Acct_State']=df.Data[6]
+        elif t7=='Acct_phone':
+            final['Acct_phone']=df.Data[6]
+        elif t7=='Acct_email':
+            final['Acct_email']=df.Data[6]
+        elif t7=='Acct_DOB.':
+            final['Acct_DOB']=df.Data[6]
+        elif t7=='Acct_Gender':
+            final['Acct_Gender']=df.Data[6]
+
+        if t8=='Acct_id':
+            final['Acct_id']=df.Data[7]
+        elif t8=='Acct_UIDNo.':
+            final['Acct_UIDNo.']=df.Data[7]
+        elif t7=='Acct_FName':
+            final['Acct_FName']=df.Data[7]
+        elif t8=='Acct_MName':
+            final['Acct_MName']=df.Data[7]
+        elif t8=='Acct_LName':
+            final['Acct_LName']=df.Data[7]
+        elif t8=='Acct_Addr1':
+            final['Acct_Addr1']=df.Data[7]
+        elif t8=='Acct_Addr2':
+            final['Acct_Addr2']=df.Data[7]
+        elif t8=='Acct_City':
+            final['Acct_City']=df.Data[7]
+        elif t8=='Acct_State':
+            final['Acct_State']=df.Data[7]
+        elif t8=='Acct_phone':
+            final['Acct_phone']=df.Data[7]
+        elif t8=='Acct_email':
+            final['Acct_email']=df.Data[7]
+        elif t8=='Acct_DOB.':
+            final['Acct_DOB']=df.Data[7]
+        elif t8=='Acct_Gender':
+            final['Acct_Gender']=df.Data[7]
+
+        if t9=='Acct_id':
+            final['Acct_id']=df.Data[8]
+        elif t9=='Acct_UIDNo.':
+            final['Acct_UIDNo.']=df.Data[8]
+        elif t9=='Acct_FName':
+            final['Acct_FName']=df.Data[8]
+        elif t9=='Acct_MName':
+            final['Acct_MName']=df.Data[8]
+        elif t9=='Acct_LName':
+            final['Acct_LName']=df.Data[8]
+        elif t9=='Acct_Addr1':
+            final['Acct_Addr1']=df.Data[8]
+        elif t9=='Acct_Addr2':
+            final['Acct_Addr2']=df.Data[8]
+        elif t9=='Acct_City':
+            final['Acct_City']=df.Data[8]
+        elif t9=='Acct_State':
+            final['Acct_State']=df.Data[8]
+        elif t9=='Acct_phone':
+            final['Acct_phone']=df.Data[8]
+        elif t9=='Acct_email':
+            final['Acct_email']=df.Data[8]
+        elif t9=='Acct_DOB.':
+            final['Acct_DOB']=df.Data[8]
+        elif t9=='Acct_Gender':
+            final['Acct_Gender']=df.Data[8]
+
+        if t10=='Acct_id':
+            final['Acct_id']=df.Data[9]
+        elif t10=='Acct_UIDNo.':
+            final['Acct_UIDNo.']=df.Data[9]
+        elif t10=='Acct_FName':
+            final['Acct_FName']=df.Data[9]
+        elif t10=='Acct_MName':
+            final['Acct_MName']=df.Data[9]
+        elif t10=='Acct_LName':
+            final['Acct_LName']=df.Data[9]
+        elif t10=='Acct_Addr1':
+            final['Acct_Addr1']=df.Data[9]
+        elif t10=='Acct_Addr2':
+            final['Acct_Addr2']=df.Data[9]
+        elif t10=='Acct_City':
+            final['Acct_City']=df.Data[9]
+        elif t10=='Acct_State':
+            final['Acct_State']=df.Data[9]
+        elif t10=='Acct_phone':
+            final['Acct_phone']=df.Data[9]
+        elif t10=='Acct_email':
+            final['Acct_email']=df.Data[9]
+        elif t10=='Acct_DOB.':
+            final['Acct_DOB']=df.Data[9]
+        elif t10=='Acct_Gender':
+            final['Acct_Gender']=df.Data[9]
+
+        if t11=='Acct_id':
+            final['Acct_id']=df.Data[10]
+        elif t11=='Acct_UIDNo.':
+            final['Acct_UIDNo.']=df.Data[10]
+        elif t11=='Acct_FName':
+            final['Acct_FName']=df.Data[10]
+        elif t11=='Acct_MName':
+            final['Acct_MName']=df.Data[10]
+        elif t11=='Acct_LName':
+            final['Acct_LName']=df.Data[10]
+        elif t11=='Acct_Addr1':
+            final['Acct_Addr1']=df.Data[10]
+        elif t11=='Acct_Addr2':
+            final['Acct_Addr2']=df.Data[10]
+        elif t11=='Acct_City':
+            final['Acct_City']=df.Data[10]
+        elif t11=='Acct_State':
+            final['Acct_State']=df.Data[10]
+        elif t11=='Acct_phone':
+            final['Acct_phone']=df.Data[10]
+        elif t11=='Acct_email':
+            final['Acct_email']=df.Data[10]
+        elif t11=='Acct_DOB.':
+            final['Acct_DOB']=df.Data[10]
+        elif t11=='Acct_Gender':
+            final['Acct_Gender']=df.Data[10]
+
+        if t12=='Acct_id':
+            final['Acct_id']=df.Data[11]
+        elif t12=='Acct_UIDNo.':
+            final['Acct_UIDNo.']=df.Data[11]
+        elif t12=='Acct_FName':
+            final['Acct_FName']=df.Data[11]
+        elif t12=='Acct_MName':
+            final['Acct_MName']=df.Data[11]
+        elif t12=='Acct_LName':
+            final['Acct_LName']=df.Data[11]
+        elif t12=='Acct_Addr1':
+            final['Acct_Addr1']=df.Data[11]
+        elif t12=='Acct_Addr2':
+            final['Acct_Addr2']=df.Data[11]
+        elif t12=='Acct_City':
+            final['Acct_City']=df.Data[11]
+        elif t12=='Acct_State':
+            final['Acct_State']=df.Data[11]
+        elif t12=='Acct_phone':
+            final['Acct_phone']=df.Data[11]
+        elif t12=='Acct_email':
+            final['Acct_email']=df.Data[11]
+        elif t12=='Acct_DOB.':
+            final['Acct_DOB']=df.Data[11]
+        elif t12=='Acct_Gender':
+            final['Acct_Gender']=df.Data[11]
+
+        if t13=='Acct_id':
+            final['Acct_id']=df.Data[12]
+        elif t13=='Acct_UIDNo.':
+            final['Acct_UIDNo.']=df.Data[12]
+        elif t13=='Acct_FName':
+            final['Acct_FName']=df.Data[12]
+        elif t13=='Acct_MName':
+            final['Acct_MName']=df.Data[12]
+        elif t13=='Acct_LName':
+            final['Acct_LName']=df.Data[12]
+        elif t13=='Acct_Addr1':
+            final['Acct_Addr1']=df.Data[12]
+        elif t13=='Acct_Addr2':
+            final['Acct_Addr2']=df.Data[12]
+        elif t13=='Acct_City':
+            final['Acct_City']=df.Data[12]
+        elif t13=='Acct_State':
+            final['Acct_State']=df.Data[12]
+        elif t13=='Acct_phone':
+            final['Acct_phone']=df.Data[12]
+        elif t13=='Acct_email':
+            final['Acct_email']=df.Data[12]
+        elif t13=='Acct_DOB.':
+            final['Acct_DOB']=df.Data[12]
+        elif t13=='Acct_Gender':
+            final['Acct_Gender']=df.Data[12]
+        
+
+        
         
         
         
