@@ -28,7 +28,7 @@ def app():
         
           
 
-        n=pd.read_csv('C:\\Users\\KIIT\\TargetDataBasecsv.csv')
+        n=pd.read_csv('TargetDataBasecsv.csv')
         target=n.columns.values.tolist()
             
         for p in target:
@@ -68,9 +68,9 @@ def app():
             
         Data.drop(columns=oSELECTED,axis=1,inplace=True)
         st.dataframe(Data)
-        Data.to_csv('C:\\Users\\\KIIT\\data.csv',index=False)
+        Data.to_csv('data.csv',index=False)
         Source.remove('None of the above')
-        dd=pd.read_csv('C:\\Users\\KIIT\\data.csv')
+        dd=pd.read_csv('data.csv')
         st.dataframe(dd)
         #Data.to_csv('pages/data.csv', index=False)
             
