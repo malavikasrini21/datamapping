@@ -70,13 +70,11 @@ def app():
                         i=i+1
         
         # Raw data 
-            with open("name","w") as f4:
-                f4.write(str(Data))
-            with open("out.txt", "w") as f1:
-                opte = repr(oSELECTED)
-                f1.write(opte)
+            Data.drop(columns=oSELECTED,axis=1,inplace=True)
+            Data.to_csv('data.csv', index=False)
             Source.remove('None of the above')
-            #Data.to_csv('pages/data.csv', index=False)
+            dd=pd.read_csv('data.csv')
+            st.dataframe(dd)
             
             
     
