@@ -70,11 +70,10 @@ def app():
                         i=i+1
         
         # Raw data 
-            Data.drop(columns=oSELECTED,axis=1,inplace=True)
-            Data.to_csv('data.csv', index=False)
-            Source.remove('None of the above')
-            dd=pd.read_csv('data.csv')
-            st.dataframe(dd)
+        Data.drop(columns=oSELECTED,axis=1,inplace=True)
+        Data.to_csv('data.csv', index=False)
+        Source.remove('None of the above')
+        
             
             
     
