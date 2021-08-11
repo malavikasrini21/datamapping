@@ -57,7 +57,7 @@ def app():
                         date_object = datetime.strptime(datee,form[i])
                         g = pd.to_datetime(date_object, format='%d%m%y')
                         Data[j,datt]=g.date()
-                        
+                        j=j+1
                         break
                     except:
         
