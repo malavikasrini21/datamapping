@@ -51,6 +51,7 @@ def app():
         if datt=='None of the above':
             pass
         else:
+            st.write(Source.index(datt))
             ar=Data[Source[Source.index(datt)]]
         
         
@@ -70,6 +71,7 @@ def app():
                         i=i+1
         
         # Raw data 
+            st.write(Source.index(datt))
             Data.drop(columns=oSELECTED,axis=1,inplace=True)
             Data.to_csv('data.csv')
             Source.remove('None of the above')
