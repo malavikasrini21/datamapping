@@ -3,9 +3,12 @@ import numpy as np
 import pandas as pd
 import ast
 import io
+import base64
 from io import StringIO
 from pages import utils,upload
 from sentence_transformers import SentenceTransformer,util
+import time
+timestr = time.strftime("%Y%m%d-%H%M%S")
 def bert(model_name):
         n='TargetDataBasecsv.csv'
         df=pd.read_csv(n)
@@ -2720,6 +2723,7 @@ def bert(model_name):
                     final['Acct_Gender']=df.Data[12]
             
         st.dataframe(final)
+        return final
             
          
 def app():
@@ -2731,13 +2735,32 @@ def app():
         
         st.write('You can use this framework to compute sentence / text embeddings for more than 100 languages.These embeddings can then be compared e.g. with cosine-similarity to find sentences with a similar meaning.'
          'This can be useful for semantic textual similar, semantic search, or paraphrase mining.')
-
-        bert(opt)
+        final=pd.DataFrame()
+        final=bert(opt)
+        choice=st.checkbox("Save Changes")
+        csvfile=final.to_csv()
+        b64 = base64.b64encode(csvfile.encode()).decode()
+        new_filename = "MappedResults_{}_.csv".format(timestr)
+        st.markdown("#### Download File ###")
+        href = f'<a href="data:file/csv;base64,{b64}" download="{new_filename}">Click Here!!</a>'
+        st.markdown(href,unsafe_allow_html=True)
     elif opt=='stsb-roberta-base':
         st.write("This is other bert model with little different features")
-        bert(opt)
+        final=pd.DataFrame()
+        final=bert(opt)
+        choice=st.checkbox("Save Changes")
+        csvfile=final.to_csv()
+        b64 = base64.b64encode(csvfile.encode()).decode()
+        new_filename = "MappedResults_{}_.csv".format(timestr)
+        st.markdown("#### Download File ###")
+        href = f'<a href="data:file/csv;base64,{b64}" download="{new_filename}">Click Here!!</a>'
+        st.markdown(href,unsafe_allow_html=True)
     else:
         st.write("Select one of the models to test the dataset against the present dataset")
+
+   
+
+
     
     
         
