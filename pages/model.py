@@ -194,13 +194,19 @@ def bert(model_name):
             c14=col40.text(df.Source[13])
             t14=col41.selectbox("Target",[df.Target[13],'Acct_id', 'Acct_UIDNo.', 'Acct_FName', 'Acct_MName', 'Acct_LName', 'Acct_Addr1', 'Acct_Addr2', 'Acct_City', 'Acct_State', 'Acct_phone', 'Acct_email', 'Acct_DOB', 'Acct_Gender'],key=4)
             m14=col42.text(df.Match[13])
-            d14=col70.selectbox("Values",df.Data[12],key=71)
+            d14=col71.selectbox("Values",df.Data[13],key=71)
+
+            col43,col44,col45,col72=st.beta_columns(4)
+            c15=col43.text(df.Source[14])
+            t15=col44.selectbox("Target",[df.Target[14],'Acct_id', 'Acct_UIDNo.', 'Acct_FName', 'Acct_MName', 'Acct_LName', 'Acct_Addr1', 'Acct_Addr2', 'Acct_City', 'Acct_State', 'Acct_phone', 'Acct_email', 'Acct_DOB', 'Acct_Gender'],key=4)
+            m15=col45.text(df.Match[14])
+            d15=col72.selectbox("Values",df.Data[14],key=72)
 
 
         
         
         except:
-            column=['Acct_id', 'Acct_UIDNo.', 'Acct_FName', 'Acct_MName', 'Acct_LName', 'Acct_Addr1', 'Acct_Addr2', 'Acct_City', 'Acct_State', 'Acct_phone', 'Acct_email', 'Acct_DOB', 'Acct_Gender']
+            column=['Acct_id', 'Acct_UIDNo.', 'Acct_FName', 'Acct_MName', 'Acct_LName', 'Acct_Addr1', 'Acct_Addr2', 'Acct_City', 'Acct_State', 'Acct_phone', 'Acct_email', 'Acct_DOB', 'Acct_Gender','Acct_Postcode']
             final=pd.DataFrame(columns=column)
             #st.dataframe(final)
             if len(ym1)==1:
@@ -230,6 +236,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[0]
                 elif t1=='Acct_Gender':
                     final['Acct_Gender']=df.Data[0]
+                elif t1=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[0]
 
                # st.dataframe(final)
             
@@ -261,6 +269,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[0]
                 elif t1=='Acct_Gender':
                     final['Acct_Gender']=df.Data[0]
+                elif t1=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[0]
 
                 if t2=='Acct_id':
                     final['Acct_id']=df.Data[1]
@@ -288,6 +298,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[1]
                 elif t2=='Acct_Gender':
                     final['Acct_Gender']=df.Data[1]
+                elif t2=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[1]
                 
                 #st.dataframe(final)
             
@@ -319,6 +331,9 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[0]
                 elif t1=='Acct_Gender':
                     final['Acct_Gender']=df.Data[0]
+                elif t1=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[0]
+
 
                 if t2=='Acct_id':
                     final['Acct_id']=df.Data[1]
@@ -346,6 +361,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[1]
                 elif t2=='Acct_Gender':
                     final['Acct_Gender']=df.Data[1]
+                elif t2=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[1]
                 
                 if t3=='Acct_id':
                     final['Acct_id']=df.Data[2]
@@ -373,6 +390,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[2]
                 elif t3=='Acct_Gender':
                     final['Acct_Gender']=df.Data[2]
+                elif t3=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[2]
 
                 #st.dataframe(final)
 
@@ -404,6 +423,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[0]
                 elif t1=='Acct_Gender':
                     final['Acct_Gender']=df.Data[0]
+                elif t1=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[0]
 
                 if t2=='Acct_id':
                     final['Acct_id']=df.Data[1]
@@ -431,6 +452,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[1]
                 elif t2=='Acct_Gender':
                     final['Acct_Gender']=df.Data[1]
+                elif t2=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[1]
                 
                 if t3=='Acct_id':
                     final['Acct_id']=df.Data[2]
@@ -458,6 +481,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[2]
                 elif t3=='Acct_Gender':
                     final['Acct_Gender']=df.Data[2]
+                elif t3=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[2]
                 
                 if t4=='Acct_id':
                     final['Acct_id']=df.Data[3]
@@ -485,6 +510,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[3]
                 elif t4=='Acct_Gender':
                     final['Acct_Gender']=df.Data[3]
+                elif t4=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[3]
                 
                 #st.dataframe(final)
 
@@ -516,6 +543,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[0]
                 elif t1=='Acct_Gender':
                     final['Acct_Gender']=df.Data[0]
+                elif t1=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[0]
 
                 if t2=='Acct_id':
                     final['Acct_id']=df.Data[1]
@@ -543,6 +572,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[1]
                 elif t2=='Acct_Gender':
                     final['Acct_Gender']=df.Data[1]
+                elif t2=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[1]
                 
                 if t3=='Acct_id':
                     final['Acct_id']=df.Data[2]
@@ -570,6 +601,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[2]
                 elif t3=='Acct_Gender':
                     final['Acct_Gender']=df.Data[2]
+                elif t3=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[2]
                 
                 if t4=='Acct_id':
                     final['Acct_id']=df.Data[3]
@@ -597,6 +630,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[3]
                 elif t4=='Acct_Gender':
                     final['Acct_Gender']=df.Data[3]
+                elif t4=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[3]
                 
                 if t5=='Acct_id':
                     final['Acct_id']=df.Data[4]
@@ -624,6 +659,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[4]
                 elif t5=='Acct_Gender':
                     final['Acct_Gender']=df.Data[4]
+                elif t5=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[4]
                 
                 #st.dataframe(final)
 
@@ -655,6 +692,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[0]
                 elif t1=='Acct_Gender':
                     final['Acct_Gender']=df.Data[0]
+                elif t1=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[0]
 
                 if t2=='Acct_id':
                     final['Acct_id']=df.Data[1]
@@ -682,6 +721,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[1]
                 elif t2=='Acct_Gender':
                     final['Acct_Gender']=df.Data[1]
+                elif t2=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[1]
                 
                 if t3=='Acct_id':
                     final['Acct_id']=df.Data[2]
@@ -709,6 +750,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[2]
                 elif t3=='Acct_Gender':
                     final['Acct_Gender']=df.Data[2]
+                elif t3=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[2]
                 
                 if t4=='Acct_id':
                     final['Acct_id']=df.Data[3]
@@ -736,6 +779,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[3]
                 elif t4=='Acct_Gender':
                     final['Acct_Gender']=df.Data[3]
+                elif t4=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[3]
                 
                 if t5=='Acct_id':
                     final['Acct_id']=df.Data[4]
@@ -763,6 +808,9 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[4]
                 elif t5=='Acct_Gender':
                     final['Acct_Gender']=df.Data[4]
+                elif t5=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[4]
+                
                 
                 if t6=='Acct_id':
                     final['Acct_id']=df.Data[5]
@@ -790,6 +838,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[5]
                 elif t6=='Acct_Gender':
                     final['Acct_Gender']=df.Data[5]
+                elif t6=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[5]
                 
                 #st.dataframe(final)
 
@@ -821,6 +871,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[0]
                 elif t1=='Acct_Gender':
                     final['Acct_Gender']=df.Data[0]
+                elif t1=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[0]
 
                 if t2=='Acct_id':
                     final['Acct_id']=df.Data[1]
@@ -848,6 +900,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[1]
                 elif t2=='Acct_Gender':
                     final['Acct_Gender']=df.Data[1]
+                elif t2=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[1]
                 
                 if t3=='Acct_id':
                     final['Acct_id']=df.Data[2]
@@ -875,6 +929,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[2]
                 elif t3=='Acct_Gender':
                     final['Acct_Gender']=df.Data[2]
+                elif t3=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[2]
                 
                 if t4=='Acct_id':
                     final['Acct_id']=df.Data[3]
@@ -902,6 +958,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[3]
                 elif t4=='Acct_Gender':
                     final['Acct_Gender']=df.Data[3]
+                elif t4=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[3]
                 
                 if t5=='Acct_id':
                     final['Acct_id']=df.Data[4]
@@ -929,6 +987,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[4]
                 elif t5=='Acct_Gender':
                     final['Acct_Gender']=df.Data[4]
+                elif t5=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[4]
                 
                 if t6=='Acct_id':
                     final['Acct_id']=df.Data[5]
@@ -956,6 +1016,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[5]
                 elif t6=='Acct_Gender':
                     final['Acct_Gender']=df.Data[5] 
+                elif t6=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[5]
                 
                 if t7=='Acct_id':
                     final['Acct_id']=df.Data[6]
@@ -983,6 +1045,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[6]
                 elif t7=='Acct_Gender':
                     final['Acct_Gender']=df.Data[6]
+                elif t7=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[6]
                 
                # st.dataframe(final)
 
@@ -1016,6 +1080,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[0]
                 elif t1=='Acct_Gender':
                     final['Acct_Gender']=df.Data[0]
+                elif t1=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[0]
 
                 if t2=='Acct_id':
                     final['Acct_id']=df.Data[1]
@@ -1043,6 +1109,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[1]
                 elif t2=='Acct_Gender':
                     final['Acct_Gender']=df.Data[1]
+                elif t2=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[1]
                 
                 if t3=='Acct_id':
                     final['Acct_id']=df.Data[2]
@@ -1070,6 +1138,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[2]
                 elif t3=='Acct_Gender':
                     final['Acct_Gender']=df.Data[2]
+                elif t3=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[2]
                 
                 if t4=='Acct_id':
                     final['Acct_id']=df.Data[3]
@@ -1097,6 +1167,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[3]
                 elif t4=='Acct_Gender':
                     final['Acct_Gender']=df.Data[3]
+                elif t4=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[3]
                 
                 if t5=='Acct_id':
                     final['Acct_id']=df.Data[4]
@@ -1124,6 +1196,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[4]
                 elif t5=='Acct_Gender':
                     final['Acct_Gender']=df.Data[4]
+                elif t5=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[4]
                 
                 if t6=='Acct_id':
                     final['Acct_id']=df.Data[5]
@@ -1151,6 +1225,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[5]
                 elif t6=='Acct_Gender':
                     final['Acct_Gender']=df.Data[5] 
+                elif t6=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[5]
                 
                 if t7=='Acct_id':
                     final['Acct_id']=df.Data[6]
@@ -1178,6 +1254,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[6]
                 elif t7=='Acct_Gender':
                     final['Acct_Gender']=df.Data[6]
+                elif t7=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[6]
 
                 if t8=='Acct_id':
                     final['Acct_id']=df.Data[7]
@@ -1205,6 +1283,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[7]
                 elif t8=='Acct_Gender':
                     final['Acct_Gender']=df.Data[7]
+                elif t8=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[7]
 
                 #st.dataframe(final)
             
@@ -1236,6 +1316,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[0]
                 elif t1=='Acct_Gender':
                     final['Acct_Gender']=df.Data[0]
+                elif t1=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[0]
 
                 if t2=='Acct_id':
                     final['Acct_id']=df.Data[1]
@@ -1263,6 +1345,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[1]
                 elif t2=='Acct_Gender':
                     final['Acct_Gender']=df.Data[1]
+                elif t2=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[1]
                 
                 if t3=='Acct_id':
                     final['Acct_id']=df.Data[2]
@@ -1290,6 +1374,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[2]
                 elif t3=='Acct_Gender':
                     final['Acct_Gender']=df.Data[2]
+                elif t3=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[2]
                 
                 if t4=='Acct_id':
                     final['Acct_id']=df.Data[3]
@@ -1317,6 +1403,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[3]
                 elif t4=='Acct_Gender':
                     final['Acct_Gender']=df.Data[3]
+                elif t4=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[3]
                 
                 if t5=='Acct_id':
                     final['Acct_id']=df.Data[4]
@@ -1344,6 +1432,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[4]
                 elif t5=='Acct_Gender':
                     final['Acct_Gender']=df.Data[4]
+                elif t5=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[4]
                 
                 if t6=='Acct_id':
                     final['Acct_id']=df.Data[5]
@@ -1371,6 +1461,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[5]
                 elif t6=='Acct_Gender':
                     final['Acct_Gender']=df.Data[5] 
+                elif t6=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[5]
                 
                 if t7=='Acct_id':
                     final['Acct_id']=df.Data[6]
@@ -1398,6 +1490,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[6]
                 elif t7=='Acct_Gender':
                     final['Acct_Gender']=df.Data[6]
+                elif t7=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[6]
 
                 if t8=='Acct_id':
                     final['Acct_id']=df.Data[7]
@@ -1425,6 +1519,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[7]
                 elif t8=='Acct_Gender':
                     final['Acct_Gender']=df.Data[7]
+                elif t8=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[7]
                 
                 if t9=='Acct_id':
                     final['Acct_id']=df.Data[8]
@@ -1452,6 +1548,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[8]
                 elif t9=='Acct_Gender':
                     final['Acct_Gender']=df.Data[8]
+                elif t9=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[8]
 
                 #st.dataframe(final)
 
@@ -1483,6 +1581,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[0]
                 elif t1=='Acct_Gender':
                     final['Acct_Gender']=df.Data[0]
+                elif t1=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[0]
 
                 if t2=='Acct_id':
                     final['Acct_id']=df.Data[1]
@@ -1510,6 +1610,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[1]
                 elif t2=='Acct_Gender':
                     final['Acct_Gender']=df.Data[1]
+                elif t2=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[1]
                 
                 if t3=='Acct_id':
                     final['Acct_id']=df.Data[2]
@@ -1537,6 +1639,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[2]
                 elif t3=='Acct_Gender':
                     final['Acct_Gender']=df.Data[2]
+                elif t3=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[2]
                 
                 if t4=='Acct_id':
                     final['Acct_id']=df.Data[3]
@@ -1564,6 +1668,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[3]
                 elif t4=='Acct_Gender':
                     final['Acct_Gender']=df.Data[3]
+                elif t4=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[3]
                 
                 if t5=='Acct_id':
                     final['Acct_id']=df.Data[4]
@@ -1591,6 +1697,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[4]
                 elif t5=='Acct_Gender':
                     final['Acct_Gender']=df.Data[4]
+                elif t5=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[4]
                 
                 if t6=='Acct_id':
                     final['Acct_id']=df.Data[5]
@@ -1618,6 +1726,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[5]
                 elif t6=='Acct_Gender':
                     final['Acct_Gender']=df.Data[5] 
+                elif t6=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[5]
                 
                 if t7=='Acct_id':
                     final['Acct_id']=df.Data[6]
@@ -1645,6 +1755,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[6]
                 elif t7=='Acct_Gender':
                     final['Acct_Gender']=df.Data[6]
+                elif t7=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[6]
 
                 if t8=='Acct_id':
                     final['Acct_id']=df.Data[7]
@@ -1672,6 +1784,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[7]
                 elif t8=='Acct_Gender':
                     final['Acct_Gender']=df.Data[7]
+                elif t8=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[7]
                 
                 if t9=='Acct_id':
                     final['Acct_id']=df.Data[8]
@@ -1699,6 +1813,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[8]
                 elif t9=='Acct_Gender':
                     final['Acct_Gender']=df.Data[8]
+                elif t9=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[8]
                 
                 
                 if t10=='Acct_id':
@@ -1727,6 +1843,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[9]
                 elif t10=='Acct_Gender':
                     final['Acct_Gender']=df.Data[9]
+                elif t10=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[9]
 
                 #st.dataframe(final)
 
@@ -1759,6 +1877,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[0]
                 elif t1=='Acct_Gender':
                     final['Acct_Gender']=df.Data[0]
+                elif t1=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[0]
 
                 if t2=='Acct_id':
                     final['Acct_id']=df.Data[1]
@@ -1786,6 +1906,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[1]
                 elif t2=='Acct_Gender':
                     final['Acct_Gender']=df.Data[1]
+                elif t2=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[1]
                 
                 if t3=='Acct_id':
                     final['Acct_id']=df.Data[2]
@@ -1813,6 +1935,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[2]
                 elif t3=='Acct_Gender':
                     final['Acct_Gender']=df.Data[2]
+                elif t3=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[2]
                 
                 if t4=='Acct_id':
                     final['Acct_id']=df.Data[3]
@@ -1840,6 +1964,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[3]
                 elif t4=='Acct_Gender':
                     final['Acct_Gender']=df.Data[3]
+                elif t4=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[3]
                 
                 if t5=='Acct_id':
                     final['Acct_id']=df.Data[4]
@@ -1867,6 +1993,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[4]
                 elif t5=='Acct_Gender':
                     final['Acct_Gender']=df.Data[4]
+                elif t5=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[4]
                 
                 if t6=='Acct_id':
                     final['Acct_id']=df.Data[5]
@@ -1894,6 +2022,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[5]
                 elif t6=='Acct_Gender':
                     final['Acct_Gender']=df.Data[5] 
+                elif t6=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[5]
                 
                 if t7=='Acct_id':
                     final['Acct_id']=df.Data[6]
@@ -1921,6 +2051,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[6]
                 elif t7=='Acct_Gender':
                     final['Acct_Gender']=df.Data[6]
+                elif t7=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[6]
 
                 if t8=='Acct_id':
                     final['Acct_id']=df.Data[7]
@@ -1948,6 +2080,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[7]
                 elif t8=='Acct_Gender':
                     final['Acct_Gender']=df.Data[7]
+                elif t8=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[7]
                 
                 if t9=='Acct_id':
                     final['Acct_id']=df.Data[8]
@@ -1975,6 +2109,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[8]
                 elif t9=='Acct_Gender':
                     final['Acct_Gender']=df.Data[8]
+                elif t9=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[8]
                 
                 
                 if t10=='Acct_id':
@@ -2003,6 +2139,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[9]
                 elif t10=='Acct_Gender':
                     final['Acct_Gender']=df.Data[9]
+                elif t10=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[9]
 
                 
                 if t11=='Acct_id':
@@ -2031,6 +2169,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[10]
                 elif t11=='Acct_Gender':
                     final['Acct_Gender']=df.Data[10]
+                elif t11=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[10]
 
                 #st.dataframe(final)
 
@@ -2063,6 +2203,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[0]
                 elif t1=='Acct_Gender':
                     final['Acct_Gender']=df.Data[0]
+                elif t1=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[0]
 
                 if t2=='Acct_id':
                     final['Acct_id']=df.Data[1]
@@ -2090,6 +2232,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[1]
                 elif t2=='Acct_Gender':
                     final['Acct_Gender']=df.Data[1]
+                elif t2=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[1]
                 
                 if t3=='Acct_id':
                     final['Acct_id']=df.Data[2]
@@ -2117,6 +2261,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[2]
                 elif t3=='Acct_Gender':
                     final['Acct_Gender']=df.Data[2]
+                elif t3=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[2]
                 
                 if t4=='Acct_id':
                     final['Acct_id']=df.Data[3]
@@ -2144,6 +2290,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[3]
                 elif t4=='Acct_Gender':
                     final['Acct_Gender']=df.Data[3]
+                elif t4=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[3]
                 
                 if t5=='Acct_id':
                     final['Acct_id']=df.Data[4]
@@ -2171,6 +2319,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[4]
                 elif t5=='Acct_Gender':
                     final['Acct_Gender']=df.Data[4]
+                elif t5=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[4]
                 
                 if t6=='Acct_id':
                     final['Acct_id']=df.Data[5]
@@ -2198,6 +2348,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[5]
                 elif t6=='Acct_Gender':
                     final['Acct_Gender']=df.Data[5] 
+                elif t6=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[5]
                 
                 if t7=='Acct_id':
                     final['Acct_id']=df.Data[6]
@@ -2225,6 +2377,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[6]
                 elif t7=='Acct_Gender':
                     final['Acct_Gender']=df.Data[6]
+                elif t7=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[6]
 
                 if t8=='Acct_id':
                     final['Acct_id']=df.Data[7]
@@ -2252,6 +2406,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[7]
                 elif t8=='Acct_Gender':
                     final['Acct_Gender']=df.Data[7]
+                elif t8=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[7]
                 
                 if t9=='Acct_id':
                     final['Acct_id']=df.Data[8]
@@ -2279,6 +2435,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[8]
                 elif t9=='Acct_Gender':
                     final['Acct_Gender']=df.Data[8]
+                elif t9=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[8]
                 
                 
                 if t10=='Acct_id':
@@ -2307,6 +2465,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[9]
                 elif t10=='Acct_Gender':
                     final['Acct_Gender']=df.Data[9]
+                elif t10=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[9]
 
                 
                 if t11=='Acct_id':
@@ -2335,6 +2495,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[10]
                 elif t11=='Acct_Gender':
                     final['Acct_Gender']=df.Data[10]
+                elif t11=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[10]
                 
                 if t12=='Acct_id':
                     final['Acct_id']=df.Data[11]
@@ -2362,6 +2524,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[11]
                 elif t12=='Acct_Gender':
                     final['Acct_Gender']=df.Data[11]
+                elif t12=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[11]
 
                 #st.dataframe(final)
 
@@ -2394,6 +2558,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[0]
                 elif t1=='Acct_Gender':
                     final['Acct_Gender']=df.Data[0]
+                elif t1=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[0]
 
                 if t2=='Acct_id':
                     final['Acct_id']=df.Data[1]
@@ -2421,6 +2587,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[1]
                 elif t2=='Acct_Gender':
                     final['Acct_Gender']=df.Data[1]
+                elif t2=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[1]
                 
                 if t3=='Acct_id':
                     final['Acct_id']=df.Data[2]
@@ -2448,6 +2616,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[2]
                 elif t3=='Acct_Gender':
                     final['Acct_Gender']=df.Data[2]
+                elif t3=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[2]
                 
                 if t4=='Acct_id':
                     final['Acct_id']=df.Data[3]
@@ -2475,6 +2645,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[3]
                 elif t4=='Acct_Gender':
                     final['Acct_Gender']=df.Data[3]
+                elif t4=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[3]
                 
                 if t5=='Acct_id':
                     final['Acct_id']=df.Data[4]
@@ -2502,6 +2674,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[4]
                 elif t5=='Acct_Gender':
                     final['Acct_Gender']=df.Data[4]
+                elif t5=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[4]
                 
                 if t6=='Acct_id':
                     final['Acct_id']=df.Data[5]
@@ -2529,6 +2703,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[5]
                 elif t6=='Acct_Gender':
                     final['Acct_Gender']=df.Data[5] 
+                elif t6=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[5]
                 
                 if t7=='Acct_id':
                     final['Acct_id']=df.Data[6]
@@ -2556,6 +2732,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[6]
                 elif t7=='Acct_Gender':
                     final['Acct_Gender']=df.Data[6]
+                elif t7=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[6]
 
                 if t8=='Acct_id':
                     final['Acct_id']=df.Data[7]
@@ -2583,6 +2761,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[7]
                 elif t8=='Acct_Gender':
                     final['Acct_Gender']=df.Data[7]
+                elif t8=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[7]
                 
                 if t9=='Acct_id':
                     final['Acct_id']=df.Data[8]
@@ -2610,6 +2790,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[8]
                 elif t9=='Acct_Gender':
                     final['Acct_Gender']=df.Data[8]
+                elif t9=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[8]
                 
                 
                 if t10=='Acct_id':
@@ -2638,6 +2820,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[9]
                 elif t10=='Acct_Gender':
                     final['Acct_Gender']=df.Data[9]
+                elif t10=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[9]
 
                 
                 if t11=='Acct_id':
@@ -2666,6 +2850,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[10]
                 elif t11=='Acct_Gender':
                     final['Acct_Gender']=df.Data[10]
+                elif t11=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[10]
                 
                 if t12=='Acct_id':
                     final['Acct_id']=df.Data[11]
@@ -2693,6 +2879,8 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[11]
                 elif t12=='Acct_Gender':
                     final['Acct_Gender']=df.Data[11]
+                elif t12=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[11]
                 
                 
                 if t13=='Acct_id':
@@ -2721,6 +2909,419 @@ def bert(model_name):
                     final['Acct_DOB']=df.Data[12]
                 elif t13=='Acct_Gender':
                     final['Acct_Gender']=df.Data[12]
+                elif t13=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[12]
+
+        if len(ym1)==14:
+                    
+                if t1=='Acct_id':
+                    final['Acct_id']=df.Data[0]
+                elif t1=='Acct_UIDNo.':
+                    final['Acct_UIDNo.']=df.Data[0]
+                elif t1=='Acct_FName':
+                    final['Acct_FName']=df.Data[0]
+                elif t1=='Acct_MName':
+                    final['Acct_MName']=df.Data[0]
+                elif t1=='Acct_LName':
+                    final['Acct_LName']=df.Data[0]
+                elif t1=='Acct_Addr1':
+                    final['Acct_Addr1']=df.Data[0]
+                elif t1=='Acct_Addr2':
+                    final['Acct_Addr2']=df.Data[0]
+                elif t1=='Acct_City':
+                    final['Acct_City']=df.Data[0]
+                elif t1=='Acct_State':
+                    final['Acct_State']=df.Data[0]
+                elif t1=='Acct_phone':
+                    final['Acct_phone']=df.Data[0]
+                elif t1=='Acct_email':
+                    final['Acct_email']=df.Data[0]
+                elif t1=='Acct_DOB':
+                    final['Acct_DOB']=df.Data[0]
+                elif t1=='Acct_Gender':
+                    final['Acct_Gender']=df.Data[0]
+                elif t1=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[0]
+
+                if t2=='Acct_id':
+                    final['Acct_id']=df.Data[1]
+                elif t2=='Acct_UIDNo.':
+                    final['Acct_UIDNo.']=df.Data[1]
+                elif t2=='Acct_FName':
+                    final['Acct_FName']=df.Data[1]
+                elif t2=='Acct_MName':
+                    final['Acct_MName']=df.Data[1]
+                elif t2=='Acct_LName':
+                    final['Acct_LName']=df.Data[1]
+                elif t2=='Acct_Addr1':
+                    final['Acct_Addr1']=df.Data[1]
+                elif t2=='Acct_Addr2':
+                    final['Acct_Addr2']=df.Data[1]
+                elif t2=='Acct_City':
+                    final['Acct_City']=df.Data[1]
+                elif t2=='Acct_State':
+                    final['Acct_State']=df.Data[1]
+                elif t2=='Acct_phone':
+                    final['Acct_phone']=df.Data[1]
+                elif t2=='Acct_email':
+                    final['Acct_email']=df.Data[1]
+                elif t2=='Acct_DOB':
+                    final['Acct_DOB']=df.Data[1]
+                elif t2=='Acct_Gender':
+                    final['Acct_Gender']=df.Data[1]
+                elif t2=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[1]
+                
+                if t3=='Acct_id':
+                    final['Acct_id']=df.Data[2]
+                elif t3=='Acct_UIDNo.':
+                    final['Acct_UIDNo.']=df.Data[2]
+                elif t3=='Acct_FName':
+                    final['Acct_FName']=df.Data[2]
+                elif t3=='Acct_MName':
+                    final['Acct_MName']=df.Data[2]
+                elif t3=='Acct_LName':
+                    final['Acct_LName']=df.Data[2]
+                elif t3=='Acct_Addr1':
+                    final['Acct_Addr1']=df.Data[2]
+                elif t3=='Acct_Addr2':
+                    final['Acct_Addr2']=df.Data[2]
+                elif t3=='Acct_City':
+                    final['Acct_City']=df.Data[2]
+                elif t3=='Acct_State':
+                    final['Acct_State']=df.Data[2]
+                elif t3=='Acct_phone':
+                    final['Acct_phone']=df.Data[2]
+                elif t3=='Acct_email':
+                    final['Acct_email']=df.Data[2]
+                elif t3=='Acct_DOB':
+                    final['Acct_DOB']=df.Data[2]
+                elif t3=='Acct_Gender':
+                    final['Acct_Gender']=df.Data[2]
+                elif t3=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[2]
+                
+                if t4=='Acct_id':
+                    final['Acct_id']=df.Data[3]
+                elif t4=='Acct_UIDNo.':
+                    final['Acct_UIDNo.']=df.Data[3]
+                elif t4=='Acct_FName':
+                    final['Acct_FName']=df.Data[3]
+                elif t4=='Acct_MName':
+                    final['Acct_MName']=df.Data[3]
+                elif t4=='Acct_LName':
+                    final['Acct_LName']=df.Data[3]
+                elif t4=='Acct_Addr1':
+                    final['Acct_Addr1']=df.Data[3]
+                elif t4=='Acct_Addr2':
+                    final['Acct_Addr2']=df.Data[3]
+                elif t4=='Acct_City':
+                    final['Acct_City']=df.Data[3]
+                elif t4=='Acct_State':
+                    final['Acct_State']=df.Data[3]
+                elif t4=='Acct_phone':
+                    final['Acct_phone']=df.Data[3]
+                elif t4=='Acct_email':
+                    final['Acct_email']=df.Data[3]
+                elif t4=='Acct_DOB':
+                    final['Acct_DOB']=df.Data[3]
+                elif t4=='Acct_Gender':
+                    final['Acct_Gender']=df.Data[3]
+                elif t4=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[3]
+                
+                if t5=='Acct_id':
+                    final['Acct_id']=df.Data[4]
+                elif t5=='Acct_UIDNo.':
+                    final['Acct_UIDNo.']=df.Data[4]
+                elif t5=='Acct_FName':
+                    final['Acct_FName']=df.Data[4]
+                elif t5=='Acct_MName':
+                    final['Acct_MName']=df.Data[4]
+                elif t5=='Acct_LName':
+                    final['Acct_LName']=df.Data[4]
+                elif t5=='Acct_Addr1':
+                    final['Acct_Addr1']=df.Data[4]
+                elif t5=='Acct_Addr2':
+                    final['Acct_Addr2']=df.Data[4]
+                elif t5=='Acct_City':
+                    final['Acct_City']=df.Data[4]
+                elif t5=='Acct_State':
+                    final['Acct_State']=df.Data[4]
+                elif t5=='Acct_phone':
+                    final['Acct_phone']=df.Data[4]
+                elif t5=='Acct_email':
+                    final['Acct_email']=df.Data[4]
+                elif t5=='Acct_DOB':
+                    final['Acct_DOB']=df.Data[4]
+                elif t5=='Acct_Gender':
+                    final['Acct_Gender']=df.Data[4]
+                elif t5=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[4]
+                
+                if t6=='Acct_id':
+                    final['Acct_id']=df.Data[5]
+                elif t6=='Acct_UIDNo.':
+                    final['Acct_UIDNo.']=df.Data[5]
+                elif t6=='Acct_FName':
+                    final['Acct_FName']=df.Data[5]
+                elif t6=='Acct_MName':
+                    final['Acct_MName']=df.Data[5]
+                elif t6=='Acct_LName':
+                    final['Acct_LName']=df.Data[5]
+                elif t6=='Acct_Addr1':
+                    final['Acct_Addr1']=df.Data[5]
+                elif t6=='Acct_Addr2':
+                    final['Acct_Addr2']=df.Data[5]
+                elif t6=='Acct_City':
+                    final['Acct_City']=df.Data[5]
+                elif t6=='Acct_State':
+                    final['Acct_State']=df.Data[5]
+                elif t6=='Acct_phone':
+                    final['Acct_phone']=df.Data[5]
+                elif t6=='Acct_email':
+                    final['Acct_email']=df.Data[5]
+                elif t6=='Acct_DOB':
+                    final['Acct_DOB']=df.Data[5]
+                elif t6=='Acct_Gender':
+                    final['Acct_Gender']=df.Data[5] 
+                elif t6=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[5]
+                
+                if t7=='Acct_id':
+                    final['Acct_id']=df.Data[6]
+                elif t7=='Acct_UIDNo.':
+                    final['Acct_UIDNo.']=df.Data[6]
+                elif t7=='Acct_FName':
+                    final['Acct_FName']=df.Data[6]
+                elif t7=='Acct_MName':
+                    final['Acct_MName']=df.Data[6]
+                elif t7=='Acct_LName':
+                    final['Acct_LName']=df.Data[6]
+                elif t7=='Acct_Addr1':
+                    final['Acct_Addr1']=df.Data[6]
+                elif t7=='Acct_Addr2':
+                    final['Acct_Addr2']=df.Data[6]
+                elif t7=='Acct_City':
+                    final['Acct_City']=df.Data[6]
+                elif t7=='Acct_State':
+                    final['Acct_State']=df.Data[6]
+                elif t7=='Acct_phone':
+                    final['Acct_phone']=df.Data[6]
+                elif t7=='Acct_email':
+                    final['Acct_email']=df.Data[6]
+                elif t7=='Acct_DOB':
+                    final['Acct_DOB']=df.Data[6]
+                elif t7=='Acct_Gender':
+                    final['Acct_Gender']=df.Data[6]
+                elif t7=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[6]
+
+                if t8=='Acct_id':
+                    final['Acct_id']=df.Data[7]
+                elif t8=='Acct_UIDNo.':
+                    final['Acct_UIDNo.']=df.Data[7]
+                elif t7=='Acct_FName':
+                    final['Acct_FName']=df.Data[7]
+                elif t8=='Acct_MName':
+                    final['Acct_MName']=df.Data[7]
+                elif t8=='Acct_LName':
+                    final['Acct_LName']=df.Data[7]
+                elif t8=='Acct_Addr1':
+                    final['Acct_Addr1']=df.Data[7]
+                elif t8=='Acct_Addr2':
+                    final['Acct_Addr2']=df.Data[7]
+                elif t8=='Acct_City':
+                    final['Acct_City']=df.Data[7]
+                elif t8=='Acct_State':
+                    final['Acct_State']=df.Data[7]
+                elif t8=='Acct_phone':
+                    final['Acct_phone']=df.Data[7]
+                elif t8=='Acct_email':
+                    final['Acct_email']=df.Data[7]
+                elif t8=='Acct_DOB':
+                    final['Acct_DOB']=df.Data[7]
+                elif t8=='Acct_Gender':
+                    final['Acct_Gender']=df.Data[7]
+                elif t8=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[7]
+                
+                if t9=='Acct_id':
+                    final['Acct_id']=df.Data[8]
+                elif t9=='Acct_UIDNo.':
+                    final['Acct_UIDNo.']=df.Data[8]
+                elif t9=='Acct_FName':
+                    final['Acct_FName']=df.Data[8]
+                elif t9=='Acct_MName':
+                    final['Acct_MName']=df.Data[8]
+                elif t9=='Acct_LName':
+                    final['Acct_LName']=df.Data[8]
+                elif t9=='Acct_Addr1':
+                    final['Acct_Addr1']=df.Data[8]
+                elif t9=='Acct_Addr2':
+                    final['Acct_Addr2']=df.Data[8]
+                elif t9=='Acct_City':
+                    final['Acct_City']=df.Data[8]
+                elif t9=='Acct_State':
+                    final['Acct_State']=df.Data[8]
+                elif t9=='Acct_phone':
+                    final['Acct_phone']=df.Data[8]
+                elif t9=='Acct_email':
+                    final['Acct_email']=df.Data[8]
+                elif t9=='Acct_DOB':
+                    final['Acct_DOB']=df.Data[8]
+                elif t9=='Acct_Gender':
+                    final['Acct_Gender']=df.Data[8]
+                elif t9=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[8]
+                
+                
+                if t10=='Acct_id':
+                    final['Acct_id']=df.Data[9]
+                elif t10=='Acct_UIDNo.':
+                    final['Acct_UIDNo.']=df.Data[9]
+                elif t10=='Acct_FName':
+                    final['Acct_FName']=df.Data[9]
+                elif t10=='Acct_MName':
+                    final['Acct_MName']=df.Data[9]
+                elif t10=='Acct_LName':
+                    final['Acct_LName']=df.Data[9]
+                elif t10=='Acct_Addr1':
+                    final['Acct_Addr1']=df.Data[9]
+                elif t10=='Acct_Addr2':
+                    final['Acct_Addr2']=df.Data[9]
+                elif t10=='Acct_City':
+                    final['Acct_City']=df.Data[9]
+                elif t10=='Acct_State':
+                    final['Acct_State']=df.Data[9]
+                elif t10=='Acct_phone':
+                    final['Acct_phone']=df.Data[9]
+                elif t10=='Acct_email':
+                    final['Acct_email']=df.Data[9]
+                elif t10=='Acct_DOB':
+                    final['Acct_DOB']=df.Data[9]
+                elif t10=='Acct_Gender':
+                    final['Acct_Gender']=df.Data[9]
+                elif t10=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[9]
+
+                
+                if t11=='Acct_id':
+                    final['Acct_id']=df.Data[10]
+                elif t11=='Acct_UIDNo.':
+                    final['Acct_UIDNo.']=df.Data[10]
+                elif t11=='Acct_FName':
+                    final['Acct_FName']=df.Data[10]
+                elif t11=='Acct_MName':
+                    final['Acct_MName']=df.Data[10]
+                elif t11=='Acct_LName':
+                    final['Acct_LName']=df.Data[10]
+                elif t11=='Acct_Addr1':
+                    final['Acct_Addr1']=df.Data[10]
+                elif t11=='Acct_Addr2':
+                    final['Acct_Addr2']=df.Data[10]
+                elif t11=='Acct_City':
+                    final['Acct_City']=df.Data[10]
+                elif t11=='Acct_State':
+                    final['Acct_State']=df.Data[10]
+                elif t11=='Acct_phone':
+                    final['Acct_phone']=df.Data[10]
+                elif t11=='Acct_email':
+                    final['Acct_email']=df.Data[10]
+                elif t11=='Acct_DOB':
+                    final['Acct_DOB']=df.Data[10]
+                elif t11=='Acct_Gender':
+                    final['Acct_Gender']=df.Data[10]
+                elif t11=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[10]
+                
+                if t12=='Acct_id':
+                    final['Acct_id']=df.Data[11]
+                elif t12=='Acct_UIDNo.':
+                    final['Acct_UIDNo.']=df.Data[11]
+                elif t12=='Acct_FName':
+                    final['Acct_FName']=df.Data[11]
+                elif t12=='Acct_MName':
+                    final['Acct_MName']=df.Data[11]
+                elif t12=='Acct_LName':
+                    final['Acct_LName']=df.Data[11]
+                elif t12=='Acct_Addr1':
+                    final['Acct_Addr1']=df.Data[11]
+                elif t12=='Acct_Addr2':
+                    final['Acct_Addr2']=df.Data[11]
+                elif t12=='Acct_City':
+                    final['Acct_City']=df.Data[11]
+                elif t12=='Acct_State':
+                    final['Acct_State']=df.Data[11]
+                elif t12=='Acct_phone':
+                    final['Acct_phone']=df.Data[11]
+                elif t12=='Acct_email':
+                    final['Acct_email']=df.Data[11]
+                elif t12=='Acct_DOB':
+                    final['Acct_DOB']=df.Data[11]
+                elif t12=='Acct_Gender':
+                    final['Acct_Gender']=df.Data[11]
+                elif t12=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[11]
+                
+                
+                if t13=='Acct_id':
+                    final['Acct_id']=df.Data[12]
+                elif t13=='Acct_UIDNo.':
+                    final['Acct_UIDNo.']=df.Data[12]
+                elif t13=='Acct_FName':
+                    final['Acct_FName']=df.Data[12]
+                elif t13=='Acct_MName':
+                    final['Acct_MName']=df.Data[12]
+                elif t13=='Acct_LName':
+                    final['Acct_LName']=df.Data[12]
+                elif t13=='Acct_Addr1':
+                    final['Acct_Addr1']=df.Data[12]
+                elif t13=='Acct_Addr2':
+                    final['Acct_Addr2']=df.Data[12]
+                elif t13=='Acct_City':
+                    final['Acct_City']=df.Data[12]
+                elif t13=='Acct_State':
+                    final['Acct_State']=df.Data[12]
+                elif t13=='Acct_phone':
+                    final['Acct_phone']=df.Data[12]
+                elif t13=='Acct_email':
+                    final['Acct_email']=df.Data[12]
+                elif t13=='Acct_DOB':
+                    final['Acct_DOB']=df.Data[12]
+                elif t13=='Acct_Gender':
+                    final['Acct_Gender']=df.Data[12]
+                elif t13=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[12]
+
+                if t14=='Acct_id':
+                    final['Acct_id']=df.Data[13]
+                elif t14=='Acct_UIDNo.':
+                    final['Acct_UIDNo.']=df.Data[13]
+                elif t14=='Acct_FName':
+                    final['Acct_FName']=df.Data[13]
+                elif t14=='Acct_MName':
+                    final['Acct_MName']=df.Data[13]
+                elif t14=='Acct_LName':
+                    final['Acct_LName']=df.Data[13]
+                elif t14=='Acct_Addr1':
+                    final['Acct_Addr1']=df.Data[13]
+                elif t14=='Acct_Addr2':
+                    final['Acct_Addr2']=df.Data[13]
+                elif t14=='Acct_City':
+                    final['Acct_City']=df.Data[13]
+                elif t14=='Acct_State':
+                    final['Acct_State']=df.Data[13]
+                elif t14=='Acct_phone':
+                    final['Acct_phone']=df.Data[13]
+                elif t14=='Acct_email':
+                    final['Acct_email']=df.Data[13]
+                elif t14=='Acct_DOB':
+                    final['Acct_DOB']=df.Data[13]
+                elif t14=='Acct_Gender':
+                    final['Acct_Gender']=df.Data[13]
+                elif t14=='Acct_Postcode':
+                    final['Acct_Postcode']=df.Data[13]
             
         st.dataframe(final)
         return final
