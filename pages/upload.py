@@ -63,6 +63,7 @@ def app():
                     try:
                         date_object = datetime.strptime(datee,form[i])
                         g = pd.to_datetime(date_object, format='%d%m%y')
+                        st.write(g.date())
                         Data[j,datt]=g.date()
                         j=j+1
                     
