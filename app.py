@@ -1,6 +1,4 @@
-import streamlit as st
-
-# Custom imports 
+import streamlit as st 
 from multipage import MultiPage
 from pages import upload,model,Home,state # import your pages here
 #from pages import *

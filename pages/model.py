@@ -11,9 +11,9 @@ from sentence_transformers import SentenceTransformer,util
 import time
 timestr = time.strftime("%Y%m%d-%H%M%S")
 def bert(model_name):
-        n='TargetDataBasecsv.csv'
+        n='C:\\Users\\KIIT\\pages\\datamapping\\TargetDataBasecsv.csv'
         df=pd.read_csv(n)
-        df1=pd.read_csv('data.csv')
+        df1=pd.read_csv('C:\\Users\\KIIT\\pages\\datamapping\\data.csv')
         ym=df.columns.values.tolist()
     #print(ym)
         ym1=df1.columns.values.tolist()

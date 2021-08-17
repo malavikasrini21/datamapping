@@ -6,7 +6,7 @@ from datetime import datetime
 import time
 timestr = time.strftime("%Y%m%d-%H%M%S")
 def app():
-    df1=pd.read_csv('C:\\Users\\\KIIT\\data.csv')
+    df1=pd.read_csv('C:\\Users\\KIIT\\pages\\datamapping\\data.csv')
     us_state_abbrev = {
         'Alabama': 'AL',
         'Alaska': 'AK',

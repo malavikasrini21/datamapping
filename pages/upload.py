@@ -28,7 +28,7 @@ def app():
         
           
 
-        n=pd.read_csv('TargetDataBasecsv.csv')
+        n=pd.read_csv('C:\\Users\\KIIT\\pages\\datamapping\\TargetDataBasecsv.csv')
         target=n.columns.values.tolist()
             
         for p in target:
@@ -73,9 +73,9 @@ def app():
         # Raw data 
             st.write(Source.index(datt))
             Data.drop(columns=oSELECTED,axis=1,inplace=True)
-            Data.to_csv('data.csv')
+            Data.to_csv('C:\\Users\\KIIT\\pages\\datamapping\\data.csv')
             Source.remove('None of the above')
-            dd=pd.read_csv('data.csv')
+            dd=pd.read_csv('C:\\Users\\KIIT\\pages\\datamapping\\data.csv')
             st.dataframe(dd)
             
             
