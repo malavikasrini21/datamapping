@@ -109,7 +109,6 @@ def bert(model_name):
     
         
             df=fino
-            st.dataframe(df)
             col1,col2,col3,col58=st.beta_columns(4)
             c1=col1.text(df.Source[0])
             t1=col2.selectbox("Target",[df.Target[0],'Acct_id', 'Acct_UIDNo.', 'Acct_FName', 'Acct_MName', 'Acct_LName', 'Acct_Addr1', 'Acct_Addr2', 'Acct_City', 'Acct_State', 'Acct_phone', 'Acct_email', 'Acct_DOB', 'Acct_Gender'],key=1)
@@ -3339,12 +3338,7 @@ def app():
          'This can be useful for semantic textual similar, semantic search, or paraphrase mining.')
         final=pd.DataFrame()
         final=bert(opt)
-        sdd=st.checkbox("Convert State Initial to full names")
-        if sdd==True:
-            geolocator = Nominatim(user_agent="geoapiExercises")
-            for k in final['Acct_Postcode']:
-                location = geolocator.geocode(k)
-                final['Acct_State'][k]=location
+        
         choice=st.checkbox("Save Changes")
         csvfile=final.to_csv()
         b64 = base64.b64encode(csvfile.encode()).decode()
@@ -3356,12 +3350,6 @@ def app():
         st.write("This is other bert model with little different features")
         final=pd.DataFrame()
         final=bert(opt)
-        sdd=st.checkbox("Convert State Initial to full names")
-        if sdd==True:
-            geolocator = Nominatim(user_agent="geoapiExercises")
-            for k in final['Acct_Postcode']:
-                location = geolocator.geocode(k)
-                final['Acct_State'][k]=location
         choice=st.checkbox("Save Changes")
         csvfile=final.to_csv()
         b64 = base64.b64encode(csvfile.encode()).decode()

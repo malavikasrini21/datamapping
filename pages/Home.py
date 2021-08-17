@@ -1,7 +1,7 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
-import utils
+from pages import utils
 def app():
     st.title("welcome")
     st.write('Semantic similarity is a metric defined over a set of documents or terms,' 
