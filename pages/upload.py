@@ -51,8 +51,8 @@ def app():
         if datt=='None of the above':
             pass
         else:
-            st.write(Source.index(datt))
-            ar=Data[Source[Source.index(datt)]]
+            
+            ar=Data[datt]
         
         
             for dt in ar:
@@ -64,19 +64,25 @@ def app():
                         date_object = datetime.strptime(datee,form[i])
                         g = pd.to_datetime(date_object, format='%d%m%y')
                     
-                        Data[Source[Source.index(datt)]].replace(datee,g.date())
+                        Data[datt].replace(datee,g.date())
                         break
                     except:
         
                         i=i+1
         
         # Raw data 
-            st.write(Source.index(datt))
-            Data.drop(columns=oSELECTED,axis=1,inplace=True)
-            Data.to_csv('C:\\Users\\KIIT\\pages\\datamapping\\data.csv')
-            Source.remove('None of the above')
-            dd=pd.read_csv('C:\\Users\\KIIT\\pages\\datamapping\\data.csv')
-            st.dataframe(dd)
+
+        Data.drop(columns=oSELECTED,axis=1,inplace=True)
+            
+
+        # Then, drop the column as usual.
+
+            #Data.drop(["a"], axis=1, inplace=True)
+
+        Data.to_csv('C:\\Users\\KIIT\\pages\\datamapping\\data.csv')
+        Source.remove('None of the above')
+        dd=pd.read_csv('C:\\Users\\KIIT\\pages\\datamapping\\data.csv')
+        st.dataframe(dd)
             
             
     

@@ -3338,7 +3338,6 @@ def app():
          'This can be useful for semantic textual similar, semantic search, or paraphrase mining.')
         final=pd.DataFrame()
         final=bert(opt)
-        
         choice=st.checkbox("Save Changes")
         csvfile=final.to_csv()
         b64 = base64.b64encode(csvfile.encode()).decode()
