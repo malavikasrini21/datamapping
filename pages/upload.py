@@ -15,6 +15,7 @@ def app():
         
         file_details={"File Name":fileuploade.name,"File Type":fileuploade.type,"File Size":fileuploade.size}
         Data=pd.read_csv(fileuploade)
+        st.dataframe(Data)
         #bert(df)
             
         source,Target=st.beta_columns(2)
@@ -48,6 +49,7 @@ def app():
             
     if st.button("Load Data"):
         st.success("Data Loading Successful...")
+        Data.drop(columns=oSELECTED,axis=1,inplace=True)
         if datt=='None of the above':
             pass
         else:
@@ -72,16 +74,16 @@ def app():
         
         # Raw data 
 
-        Data.drop(columns=oSELECTED,axis=1,inplace=True)
-            
+        
+        
 
         # Then, drop the column as usual.
 
             #Data.drop(["a"], axis=1, inplace=True)
 
-        Data.to_csv('C:\\Users\\KIIT\\pages\\datamapping\\data.csv')
+        Data.to_csv('data.csv',index=False)
         Source.remove('None of the above')
-        dd=pd.read_csv('C:\\Users\\KIIT\\pages\\datamapping\\data.csv')
+        dd=pd.read_csv('data.csv')
         st.dataframe(dd)
             
             
