@@ -15,7 +15,7 @@ def app():
         
         file_details={"File Name":fileuploade.name,"File Type":fileuploade.type,"File Size":fileuploade.size}
         Data=pd.read_csv(fileuploade)
-        st.dataframe(Data)
+        
         #bert(df)
             
         source,Target=st.beta_columns(2)
