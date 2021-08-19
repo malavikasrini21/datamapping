@@ -3330,7 +3330,7 @@ def bert(model_name):
 def app():
   
     st.title("Model Selector")
-    opt = st.radio("Models",('Select one','nli-roberta-base', 'stsb-roberta-base','bert-base-nli-mean-tokens'))
+    opt = st.radio("Models",('Select one','nli-roberta-base', 'stsb-roberta-base'))
 
     if opt == 'nli-roberta-base':
         
@@ -3364,14 +3364,6 @@ def app():
         #st.markdown("#### Download File ###")
         #href = f'<a href="data:file/csv;base64,{b64}" download="{new_filename}">Click Here!!</a>'
         #st.markdown(href,unsafe_allow_html=True)
-    elif opt=='bert-base-nli-mean-tokens':
-        st.write("This is other bert model with little different features")
-        final=pd.DataFrame()
-        final=bert(opt)
-        #choice=st.checkbox("Save Changes")
-        statee=st.checkbox("Change State to Full names")
-        if statee==True:
-            final.to_csv('data.csv',index=False)
-            st.success("See the final output on Display page")
+    
     else:
         st.write("Select one of the models to test the dataset against the present dataset")
