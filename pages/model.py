@@ -15,44 +15,27 @@ def bert(model_name):
         df=pd.read_csv(n)
         df1=pd.read_csv('data.csv')
         ym=df.columns.values.tolist()
-    #print(ym)
         ym1=df1.columns.values.tolist()
         
-
-#print(ym1)
        
         model = SentenceTransformer(model_name)
         embeddings1 = model.encode(ym, convert_to_tensor=True)
         embeddings2 = model.encode(ym1, convert_to_tensor=True)
 
         cosine_scores = util.pytorch_cos_sim(embeddings2, embeddings1)
-        #st.write(cosine_scores)
-#a=[]
-#b=[]
-#score=[]
+        
         d=[]
         t=[]
 
         for i in range(len(ym1)):
             for j in range(len(ym)):
-        #a.append(ym[i])
-        #b.append(ym1[i])
-        #score.append(cosine_scores[i][j].item())
-        #data={'word1':a,'word2':b,'similarity score':score}
                 t.append(ym1[i])
                 t.append(ym[j])
                 t.append(cosine_scores[i][j].item())
                 d.append(t)
                 t=[]
-#print(d)
-        
-        #print("word 1:", ym[i])
-        #print("word 2:", ym1[j])
-        #print("Similarity Score:", cosine_scores[i][j].item())
-        #print()
 
         f=pd.DataFrame(d,columns=["Source","Target","Match"])
-    #print(f)
         d=[]
         dicte={}
         for i in range(len(f)):
@@ -3364,6 +3347,7 @@ def app():
         #st.markdown("#### Download File ###")
         #href = f'<a href="data:file/csv;base64,{b64}" download="{new_filename}">Click Here!!</a>'
         #st.markdown(href,unsafe_allow_html=True)
+        
     
     else:
         st.write("Select one of the models to test the dataset against the present dataset")
