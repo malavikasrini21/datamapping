@@ -15,7 +15,7 @@ mod=''
 app.add_page("Home", Home.app)
 app.add_page("Upload Data", upload.app)
 app.add_page("Model Selector", model.app)
-app.add_page("Transformation", state.app)
+app.add_page("Display", state.app)
 #app.add_page("Results", Results.app)
 
 
