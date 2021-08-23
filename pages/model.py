@@ -3322,19 +3322,7 @@ def app():
          'This can be useful for semantic textual similar, semantic search, or paraphrase mining.')
         final=pd.DataFrame()
         final=bert(opt)
-        #choice=st.checkbox("Save Changes")
-        statee=st.checkbox("Change State to Full names")
-        if statee==True:
-            final.to_csv('data.csv',index=False)
-
-            st.success("See the final output on Display page")
-        #csvfile=final.to_csv()
-        #b64 = base64.b64encode(csvfile.encode()).decode()
-        #new_filename = "MappedResults_{}_.csv".format(timestr)
-        #st.markdown("#### Download File ###")
-        #href = f'<a href="data:file/csv;base64,{b64}" download="{new_filename}">Click Here!!</a>'
-        #st.markdown(href,unsafe_allow_html=True)
-        mapp=st.checkbox('Download mapped data')
+        mapp=st.checkbox('To get Mapping document')
         if mapp==True:
             finlist=final.columns.values.tolist()
             finrowl=[]
@@ -3353,25 +3341,24 @@ def app():
                         data_map.loc[len(data_map.index)] = [i, matcher[j]]
                     else:continue
             
-            st.dataframe(data_map)
+            csvfile=data_map.to_csv()
+            b64 = base64.b64encode(csvfile.encode()).decode()
+            new_filename = "Mapping_pattern_{}_.csv".format(timestr)
+            st.markdown("#### Download File ###")
+            href = f'<a href="data:file/csv;base64,{b64}" download="{new_filename}">Click Here!!</a>'
+            st.markdown(href,unsafe_allow_html=True)
+        statee=st.checkbox("Change State to Full names")
+        if statee==True:
+            final.to_csv('data.csv',index=False)
+
+            st.success("See the final output on Display page")
                         
                     
     elif opt=='stsb-roberta-base':
         st.write("This is other bert model with little different features")
         final=pd.DataFrame()
         final=bert(opt)
-        #choice=st.checkbox("Save Changes")
-        statee=st.checkbox("Change State to Full names")
-        if statee==True:
-            final.to_csv('data.csv',index=False)
-            st.success("See the final output on Display page")
-        #csvfile=final.to_csv()
-        #b64 = base64.b64encode(csvfile.encode()).decode()
-        #new_filename = "MappedResults_{}_.csv".format(timestr)
-        #st.markdown("#### Download File ###")
-        #href = f'<a href="data:file/csv;base64,{b64}" download="{new_filename}">Click Here!!</a>'
-        #st.markdown(href,unsafe_allow_html=True)
-        mapp=st.checkbox('Download mapped data')
+        mapp=st.checkbox('To get Mapping document')
         if mapp==True:
             finlist=final.columns.values.tolist()
             finrowl=[]
@@ -3390,7 +3377,16 @@ def app():
                         data_map.loc[len(data_map.index)] = [i, matcher[j]]
                     else:continue
             
-            st.dataframe(data_map)
-    
+            csvfile=data_map.to_csv()
+            b64 = base64.b64encode(csvfile.encode()).decode()
+            new_filename = "Mapping_pattern_{}_.csv".format(timestr)
+            st.markdown("#### Download File ###")
+            href = f'<a href="data:file/csv;base64,{b64}" download="{new_filename}">Click Here!!</a>'
+            st.markdown(href,unsafe_allow_html=True)
+        statee=st.checkbox("Change State to Full names")
+        if statee==True:
+            final.to_csv('data.csv',index=False)
+
+            st.success("See the final output on Display page")
     else:
         st.write("Select one of the models to test the dataset against the present dataset")
