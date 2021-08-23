@@ -25,7 +25,7 @@ def app():
         Source=Data.columns.values.tolist()
         
         
-        oSELECTED = col1.multiselect('Select',Source)
+        oSELECTED = col1.multiselect('Select the option to be removed',Source)
         
           
 
