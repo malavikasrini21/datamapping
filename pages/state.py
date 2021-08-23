@@ -1,10 +1,5 @@
-from re import search
 import streamlit as st
-
 from pyzipcode import ZipCodeDatabase
-
-
-
 import pandas as pd
 from pages import utils
 import base64
@@ -13,9 +8,7 @@ import time
 timestr = time.strftime("%Y%m%d-%H%M%S")
 def app():
     df1=pd.read_csv('data.csv')
-    
-    sd=df1['Acct_Postcode']
-    
+    sd=df1['Acct_Postcode'] 
     search =ZipCodeDatabase()
     j=0
     for i in sd:
