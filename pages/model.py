@@ -240,9 +240,9 @@ def bert(model_name):
                     final['Acct_Gender']=df.Data[0]
                 elif t1=='Acct_Postcode':
                     final['Acct_Postcode']=df.Data[0]
-                df_map.source[0]=c1
-                df_map.target[0]=t1
-                df_map.match[0]=m1
+                #df_map.source[0]=c1
+                #df_map.target[0]=t1
+                #df_map.match[0]=m1
 
                # st.dataframe(final)
             
@@ -306,9 +306,9 @@ def bert(model_name):
                 elif t2=='Acct_Postcode':
                     final['Acct_Postcode']=df.Data[1]
                 
-                df_map.source[1]=c2
-                df_map.target[1]=t2
-                df_map.match[1]=m2
+                #df_map.source[1]=c2
+                #df_map.target[1]=t2
+                #df_map.match[1]=m2
                 
                 #st.dataframe(final)
             
@@ -402,9 +402,9 @@ def bert(model_name):
                 elif t3=='Acct_Postcode':
                     final['Acct_Postcode']=df.Data[2]
 
-                df_map.source[2]=c3
-                df_map.target[2]=t3
-                df_map.match[2]=m3
+                #df_map.source[2]=c3
+                #df_map.target[2]=t3
+                #df_map.match[2]=m3
 
                 #st.dataframe(final)
 
@@ -526,9 +526,9 @@ def bert(model_name):
                 elif t4=='Acct_Postcode':
                     final['Acct_Postcode']=df.Data[3]
 
-                df_map.source[3]=c4
-                df_map.target[3]=t4
-                df_map.match[3]=m4
+                #df_map.source[3]=c4
+                #df_map.target[3]=t4
+                #df_map.match[3]=m4
                 
                 #st.dataframe(final)
 
@@ -679,9 +679,9 @@ def bert(model_name):
                 elif t5=='Acct_Postcode':
                     final['Acct_Postcode']=df.Data[4]
 
-                df_map.source[4]=c5
-                df_map.target[4]=t5
-                df_map.match[4]=m5
+                #df_map.source[4]=c5
+                #df_map.target[4]=t5
+                #df_map.match[4]=m5
                 
                 #st.dataframe(final)
 
@@ -862,9 +862,9 @@ def bert(model_name):
                 elif t6=='Acct_Postcode':
                     final['Acct_Postcode']=df.Data[5]
 
-                df_map.source[5]=c6
-                df_map.target[5]=t6
-                df_map.match[5]=m6
+                #df_map.source[5]=c6
+                #df_map.target[5]=t6
+                #df_map.match[5]=m6
                 
                 #st.dataframe(final)
 
@@ -1073,9 +1073,9 @@ def bert(model_name):
                 elif t7=='Acct_Postcode':
                     final['Acct_Postcode']=df.Data[6]
 
-                df_map.source[6]=c7
-                df_map.target[6]=t7
-                df_map.match[6]=m7
+                #df_map.source[6]=c7
+                #df_map.target[6]=t7
+                #df_map.match[6]=m7
                 
                # st.dataframe(final)
 
@@ -1315,9 +1315,9 @@ def bert(model_name):
                 elif t8=='Acct_Postcode':
                     final['Acct_Postcode']=df.Data[7]
 
-                df_map.source[7]=c8
-                df_map.target[7]=t8
-                df_map.match[7]=m8
+                #df_map.source[7]=c8
+                #df_map.target[7]=t8
+                #df_map.match[7]=m8
 
                 #st.dataframe(final)
             
@@ -1584,9 +1584,9 @@ def bert(model_name):
                 elif t9=='Acct_Postcode':
                     final['Acct_Postcode']=df.Data[8]
 
-                df_map.source[8]=c9
-                df_map.target[8]=t9
-                df_map.match[8]=m9
+                #df_map.source[8]=c9
+                #df_map.target[8]=t9
+                #df_map.match[8]=m9
 
                 #st.dataframe(final)
 
@@ -1883,9 +1883,9 @@ def bert(model_name):
                 elif t10=='Acct_Postcode':
                     final['Acct_Postcode']=df.Data[9]
 
-                df_map.source[9]=c10
-                df_map.target[9]=t10
-                df_map.match[9]=m10
+                #df_map.source[9]=c10
+                #df_map.target[9]=t10
+                #df_map.match[9]=m10
 
                 #st.dataframe(final)
 
@@ -2215,9 +2215,9 @@ def bert(model_name):
 
                 #st.dataframe(final)
 
-                df_map.source[10]=c11
-                df_map.target[10]=t11
-                df_map.match[10]=m11
+                #df_map.source[10]=c11
+                #df_map.target[10]=t11
+                #df_map.match[10]=m11
 
                 
             if len(ym1)==12:
@@ -2574,9 +2574,9 @@ def bert(model_name):
 
                 #st.dataframe(final)
 
-                df_map.source[11]=c12
-                df_map.target[11]=t12
-                df_map.match[11]=m12
+                #df_map.source[11]=c12
+                #df_map.target[11]=t12
+                #df_map.match[11]=m12
 
                 
         if len(ym1)==13:
@@ -2961,9 +2961,9 @@ def bert(model_name):
                 elif t13=='Acct_Postcode':
                     final['Acct_Postcode']=df.Data[12]
 
-                df_map.source[12]=c13
-                df_map.target[12]=t13
-                df_map.match[12]=m13
+                #df_map.source[12]=c13
+                #df_map.target[12]=t13
+                #df_map.match[12]=m13
                 
 
         if len(ym1)==14:
@@ -3380,7 +3380,7 @@ def bert(model_name):
                
             
         st.dataframe(final)
-        return final,df
+        return final
             
          
 def app():
@@ -3393,28 +3393,37 @@ def app():
         st.write('You can use this framework to compute sentence / text embeddings for more than 100 languages.These embeddings can then be compared e.g. with cosine-similarity to find sentences with a similar meaning.'
          'This can be useful for semantic textual similar, semantic search, or paraphrase mining.')
         final=pd.DataFrame()
-        final_map=pd.DataFrame()
-        final,final_map=bert(opt)
-        #choice=st.checkbox("Save Changes")
-        #csvfile=final.to_csv()
-        #b64 = base64.b64encode(csvfile.encode()).decode()
-        #new_filename = "MappedResults_{}_.csv".format(timestr)
-        #st.markdown("#### Download File ###")
-        #href = f'<a href="data:file/csv;base64,{b64}" download="{new_filename}">Click Here!!</a>'
-        #st.markdown(href,unsafe_allow_html=True)
-
+        final=bert(opt)
         mapp=st.checkbox("To get Mapping document")
         if mapp==True:
-            column=['Source''Mapped_Target']
-            map_df=pd.DataFrame(columns=column)
-            map_df['Source']=final_map.loc[:,'Source']
-            map_df['Mapped_Target']=final_map.loc[:,'Target']
-            csvfile=map_df.to_csv()
+            
+            finlist=final.columns.values.tolist()
+            finrowl=[]
+            df1rowl=[]
+            for i in finlist:
+                finrowl.append(final._get_value(0,i))
+            df1=pd.read_csv('data.csv')
+            ym1=df1.columns.values.tolist()
+            for i in ym1:
+                df1rowl.append(df1._get_value(0,i))
+            data_map=pd.DataFrame(columns=['Source','Target'])
+            matcher={}
+            for i in range(len(finrowl)):
+                matcher[finrowl[i]]=finlist[i]
+            for i in ym1:
+                for j in finrowl:
+                    if df1._get_value(0,i)==j:
+                        data_map.loc[len(data_map.index)] = [i, matcher[j]]
+                    else:continue
+            csvfile=data_map.to_csv()
             b64 = base64.b64encode(csvfile.encode()).decode()
-            new_filename = "Mapping_Pattern_{}_.csv".format(timestr)
+            new_filename = "Mapping_pattern_{}_.csv".format(timestr)
             st.markdown("#### Download File ###")
             href = f'<a href="data:file/csv;base64,{b64}" download="{new_filename}">Click Here!!</a>'
             st.markdown(href,unsafe_allow_html=True)
+            #st.dataframe(data_map)
+
+            
 
         statee=st.checkbox("Change State to Full names")
         if statee==True:
@@ -3423,29 +3432,35 @@ def app():
     elif opt=='stsb-roberta-base':
         st.write("This is other bert model with little different features")
         final=pd.DataFrame()
-        final_map=pd.DataFrame()
-        final,final_map=bert(opt)
-        #choice=st.checkbox("Save Changes")
-        #csvfile=final.to_csv()
-        #b64 = base64.b64encode(csvfile.encode()).decode()
-        #new_filename = "MappedResults_{}_.csv".format(timestr)
-        #st.markdown("#### Download File ###")
-        #href = f'<a href="data:file/csv;base64,{b64}" download="{new_filename}">Click Here!!</a>'
-        #st.markdown(href,unsafe_allow_html=True)
-
+        final=bert(opt)
         mapp=st.checkbox("To get Mapping document")
         if mapp==True:
-            column=['Source','Mapped_Target']
-            map_df=pd.DataFrame(columns=column)
-            map_df['Client_Source']=final_map.loc[:,'Source']
-            map_df['Mapped_Target']=final_map.loc[:,'Target']
-            csvfile=map_df.to_csv()
+            finlist=final.columns.values.tolist()
+            finrowl=[]
+            df1rowl=[]
+            for i in finlist:
+                finrowl.append(final._get_value(0,i))
+            df1=pd.read_csv('data.csv')
+            ym1=df1.columns.values.tolist()
+            for i in ym1:
+                df1rowl.append(df1._get_value(0,i))
+            data_map=pd.DataFrame(columns=['Source','Target'])
+            matcher={}
+            for i in range(len(finrowl)):
+                matcher[finrowl[i]]=finlist[i]
+            for i in ym1:
+                for j in finrowl:
+                    if df1._get_value(0,i)==j:
+                        data_map.loc[len(data_map.index)] = [i, matcher[j]]
+                    else:continue
+            csvfile=data_map.to_csv()
             b64 = base64.b64encode(csvfile.encode()).decode()
-            new_filename = "Mapping_Pattern_{}_.csv".format(timestr)
+            new_filename = "Mapping_pattern_{}_.csv".format(timestr)
             st.markdown("#### Download File ###")
             href = f'<a href="data:file/csv;base64,{b64}" download="{new_filename}">Click Here!!</a>'
             st.markdown(href,unsafe_allow_html=True)
-
+            #st.dataframe(data_map)
+            
         statee=st.checkbox("Change State to Full names")
         if statee==True:
             final.to_csv('data.csv',index=False)

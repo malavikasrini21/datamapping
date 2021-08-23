@@ -1,0 +1,14 @@
+streamlit
+numpy
+pandas
+datetime
+pyzipcode
+re
+ZipCodeDatabase
+base64
+time
+SentenceTransformer
+util
+ast
+io
+StringIO
