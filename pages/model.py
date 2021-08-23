@@ -9,13 +9,14 @@ from io import StringIO
 from pages import utils,upload
 from sentence_transformers import SentenceTransformer,util
 import time
+n='C:\\Users\\KIIT\\pages\\datamapping\\TargetDataBasecsv.csv'
+df=pd.read_csv(n)
+df1=pd.read_csv('data.csv')
+ym=df.columns.values.tolist()
+ym1=df1.columns.values.tolist()
 timestr = time.strftime("%Y%m%d-%H%M%S")
 def bert(model_name):
-        n='C:\\Users\\KIIT\\pages\\datamapping\\TargetDataBasecsv.csv'
-        df=pd.read_csv(n)
-        df1=pd.read_csv('data.csv')
-        ym=df.columns.values.tolist()
-        ym1=df1.columns.values.tolist()
+        
         
        
         model = SentenceTransformer(model_name)
@@ -3325,6 +3326,7 @@ def app():
         statee=st.checkbox("Change State to Full names")
         if statee==True:
             final.to_csv('data.csv',index=False)
+
             st.success("See the final output on Display page")
         #csvfile=final.to_csv()
         #b64 = base64.b64encode(csvfile.encode()).decode()
@@ -3332,6 +3334,28 @@ def app():
         #st.markdown("#### Download File ###")
         #href = f'<a href="data:file/csv;base64,{b64}" download="{new_filename}">Click Here!!</a>'
         #st.markdown(href,unsafe_allow_html=True)
+        mapp=st.checkbox('Download mapped data')
+        if mapp==True:
+            finlist=final.columns.values.tolist()
+            finrowl=[]
+            df1rowl=[]
+            for i in finlist:
+                finrowl.append(final._get_value(0,i))
+            for i in ym1:
+                df1rowl.append(df1._get_value(0,i))
+            data_map=pd.DataFrame(columns=['Source','Target'])
+            matcher={}
+            for i in range(len(finrowl)):
+                matcher[finrowl[i]]=finlist[i]
+            for i in ym1:
+                for j in finrowl:
+                    if df1._get_value(0,i)==j:
+                        data_map.loc[len(data_map.index)] = [i, matcher[j]]
+                    else:continue
+            
+            st.dataframe(data_map)
+                        
+                    
     elif opt=='stsb-roberta-base':
         st.write("This is other bert model with little different features")
         final=pd.DataFrame()
@@ -3347,7 +3371,26 @@ def app():
         #st.markdown("#### Download File ###")
         #href = f'<a href="data:file/csv;base64,{b64}" download="{new_filename}">Click Here!!</a>'
         #st.markdown(href,unsafe_allow_html=True)
-        
+        mapp=st.checkbox('Download mapped data')
+        if mapp==True:
+            finlist=final.columns.values.tolist()
+            finrowl=[]
+            df1rowl=[]
+            for i in finlist:
+                finrowl.append(final._get_value(0,i))
+            for i in ym1:
+                df1rowl.append(df1._get_value(0,i))
+            data_map=pd.DataFrame(columns=['Source','Target'])
+            matcher={}
+            for i in range(len(finrowl)):
+                matcher[finrowl[i]]=finlist[i]
+            for i in ym1:
+                for j in finrowl:
+                    if df1._get_value(0,i)==j:
+                        data_map.loc[len(data_map.index)] = [i, matcher[j]]
+                    else:continue
+            
+            st.dataframe(data_map)
     
     else:
         st.write("Select one of the models to test the dataset against the present dataset")
