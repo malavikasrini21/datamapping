@@ -3,12 +3,7 @@ numpy
 pandas
 datetime
 pyzipcode
-re
-ZipCodeDatabase
-base64
-time
-SentenceTransformer
-util
-ast
-io
-StringIO
+pybase64
+sentence_transformers
+
+
